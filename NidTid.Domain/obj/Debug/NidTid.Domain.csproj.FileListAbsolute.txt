@@ -1,0 +1,10 @@
+c:\users\jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\NidTid.Domain.dll
+c:\users\jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\NidTid.Domain.pdb
+c:\users\jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.dll
+c:\users\jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.pdb
+C:\Users\Jonnie\Documents\Visual Studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\NidTid.Domain.dll.config
+C:\Users\Jonnie\Documents\Visual Studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Jonnie\Documents\Visual Studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.csprojResolveAssemblyReference.cache
