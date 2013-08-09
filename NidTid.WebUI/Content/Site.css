@@ -3,14 +3,33 @@
 body {
     margin: 0px;
     background: #6895b7;
+    font-family: Verdana;
+    height: 100%;
 }
 
 #header {
     background: #444;
-    color: #ddd;
+    color: #fff;
     width: 100%;
-    height: 70px;
+    height: 80px;
     margin: 0px;
+}
+#home {
+    float: left;
+    width: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#logo {
+    float:left;
+    width: 300px;
+}
+#login {
+    margin-top: 10px;
+    font-size: small;
+    float: right;
+    width: 200px;
+    margin-right: 20px;
 }
 
 #body {
@@ -18,29 +37,97 @@ body {
     height: 100%;
     margin: 0px;
     margin-right: 35px;
-
 }
 
-#left-menu{
+.left-menu{
+    padding-top: 20px;
     float: left;
     width: 110px;
     height: 100%;
 }
+    .left-menu img {
+         margin-left: 6px;
+    }
 
 #content {
-    background: #e8e6e6;
+    overflow:hidden;
+    background: #eee;
+    width: auto;
     height: 1000px;
-    padding: 18px;
-    margin-left: 110px;
     margin-right: 35px;
-    border: 1px solid black;
     -moz-box-shadow:    inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
     box-shadow:         inset 0 0 10px #000000;
 }
 
-#sub-menu {
-    border-bottom: 2px solid #808080;
-    height: 20px;
+#contentleftbody {
+    float: left;
+    width: auto;
+    padding: 18px;
+    margin: 10px;
+    margin-left: 30px;
 }
+    #contentleftbody legend {
+        font-weight: bold;
+    }
+
+#customerSearch {
+    background: #ebf5c8;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    padding: 5px;
+    width: 310px;
+}
+
+#contentrightbody {
+    overflow:hidden;
+    padding: 18px;
+    margin: 10px;
+}
+
+#sub-menu {
+    background: #ebf5c8;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    height: 30px;
+    width: auto;
+    margin: 10px;
+}
+
+
+/*--------------------------------Form styles-----------------------------*/
+
+.editor-field {
+    margin-bottom: .2em;
+}
+.editor-label {
+    font-size: small;
+    font-weight: bold;
+}
+    .editor-label:after {
+        content: ":"
+    }
+
+.clabel {
+    font-size: small;
+    font-weight: bold;
+}
+
+.text-box {
+    width: 15em;
+}
+.multi-line {
+    height: 5em;
+    font-family: Verdana;
+}
+
+
+
+/*
+    Element styles---------------------*/
+
+.link {
+    color: black;
+}
+
 

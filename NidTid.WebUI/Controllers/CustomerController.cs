@@ -22,13 +22,29 @@ namespace NidTid.WebUI.Controllers {
             CustomersListViewModel model = new CustomersListViewModel {Customers = repository.Customers}; 
             return View(model);
         }
-
-        public ActionResult View(int id) {
-
+        
+        [HttpGet]
+        public ActionResult CustomerDetails(int id) {
             Customer selectedCustomer = repository.Customers.FirstOrDefault(c => c.Id == id);
             return View(selectedCustomer);
-        } 
+        }
 
+        [HttpPost]
+        public ActionResult CustomerDetails(Customer currentCustomer) {
+            if (ModelState.IsValid) {
+                repository.SaveCustomer(currentCustomer);
+                TempData["message"] = "Kunduppgifterna har uppdaterats!";
+            }
+            else { 
+                //FIXA FELMEDDELANDE
+            }
+            return View(currentCustomer);
+        }
+
+        public ViewResult Create() {
+            
+            return View("CustomerDetails", new Customer());
+        }
 
         [WebMethod(true)]
         public string FilteredCustomers(string term)
@@ -42,8 +58,6 @@ namespace NidTid.WebUI.Controllers {
             String json = JsonConvert.SerializeObject(filteredCustomers);
             return json;
         }
-
-
 
     }
 }

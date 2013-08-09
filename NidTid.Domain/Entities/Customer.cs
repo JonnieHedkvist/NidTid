@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
  
 namespace NidTid.Domain.Entities
 {
     public class Customer
     {
-        [Display(Name = "Kundnr")]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [Display(Name = "Namn")]
@@ -36,4 +37,6 @@ namespace NidTid.Domain.Entities
 
         public Nullable<decimal> Moms { get; set; }
     }
+
+
 }

@@ -1,0 +1,108 @@
+﻿@model NidTid.Domain.Entities.Customer
+
+@{
+    ViewBag.Title = "Kunder";
+}
+
+@{
+    Html.RenderPartial("CustomerAutoComplete");
+}
+<br />
+<br />
+<div id="customerdetails">
+    @if (TempData["message"] != null) { 
+        <div class="message">
+            @TempData["message"]
+        </div>
+    }
+
+    @using (Html.BeginForm("CustomerDetails", "Customer")) { 
+        <fieldset>
+            <legend>@Model.Name</legend>
+            <table>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Name)
+                    </td>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.OrgNr)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.Name)
+                    </td>
+                    <td>    
+                        @Html.EditorFor(model => model.OrgNr)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Adress)
+                    </td>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Phone1)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.Adress)
+                    </td>
+                    <td>    
+                        @Html.EditorFor(model => model.Phone1)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.PostNr)
+                    </td>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Phone2)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.PostNr)
+                    </td>
+                    <td>    
+                        @Html.EditorFor(model => model.Phone2)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.PostOrt)
+                    </td>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.PostOrt)
+                    </td>
+                    <td>    
+                        @Html.EditorFor(model => model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Moms)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.Moms)
+                    </td>
+                </tr>
+
+            </table>
+        
+            <input type="submit" id="btnUnlock" value="Redigera kunduppgifter" />
+         </fieldset>
+   
+    }
+
+    <br />
+    <br />
+    @Html.ActionLink("Ny kund...", "Create", "Customer", null, new { @class= "link"} )
+</div>

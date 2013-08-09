@@ -5,34 +5,44 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.10.3.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/actest.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/customers.js")"></script>
 
 </head>
 <body>
 
         <div id="header">
-            Header
+            <div id="home">
+                <img src="~/Content/Icons/home.png" alt="Smiley face" height="50" width="50">
+            </div>
+            <div id="logo">
+                <h2>DinTid.se</h2>
+            </div>
+            <div id="login">
+                Inloggad som: jonnie.hedkvist@gmail.com
+            </div>
         </div>
        
+
         <div id="body">
-            <div id="left-menu">
-                @{ Html.RenderAction("Menu", "Nav"); }
+            <div class="left-menu">
+                @{
+                    Html.RenderPartial("LeftMenu");
+                }
             </div>
             <div id="content">
-                <div id="sub-menu">
-                    
-                </div>
-                <div id="contentbody">
+                
+                <div id="contentleftbody">
                     @RenderBody()
                 </div>
-                
+                <div id="contentrightbody">
+                    
+                </div>
             </div>  
-
         </div>
 
     
