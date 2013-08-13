@@ -36,6 +36,8 @@ namespace NidTid.Domain.Entities
         public string Email { get; set; }
 
         public Nullable<decimal> Moms { get; set; }
+
+        public virtual ICollection<Project> Project { get; set; }
     }
 
 

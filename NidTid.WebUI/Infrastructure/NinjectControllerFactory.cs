@@ -29,6 +29,7 @@ namespace NidTid.WebUI.Infrastructure
         private void AddBindings() {
             
             ninjectKernel.Bind<ICustomerRepository>().To<EFCustomerRepository>();
+            ninjectKernel.Bind<IProjectRepository>().To<EFProjectRepository>();
         }
     }
 }

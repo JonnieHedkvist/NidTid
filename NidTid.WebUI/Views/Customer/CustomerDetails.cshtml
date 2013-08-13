@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>
-                        @Html.EditorFor(model => model.Name)
+                        @Html.EditorFor(model => model.Name, new { @class = "disabled" })
                     </td>
                     <td>    
                         @Html.EditorFor(model => model.OrgNr)
@@ -97,10 +97,16 @@
 
             </table>
         
-            <input type="submit" id="btnUnlock" value="Redigera kunduppgifter" />
+            <input type="button" id="btnUnlock" value="Redigera kunduppgifter" />
          </fieldset>
    
     }
+
+    @foreach (var p in Model.Project) { 
+        <p>@p.Name</p>
+    }
+
+
 
     <br />
     <br />

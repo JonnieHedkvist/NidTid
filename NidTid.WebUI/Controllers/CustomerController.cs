@@ -7,7 +7,7 @@ using NidTid.Domain.Abstract;
 using NidTid.Domain.Entities;
 using NidTid.WebUI.Models;
 using System.Web.Services;
-using Newtonsoft.Json;
+
 
 namespace NidTid.WebUI.Controllers {
     public class CustomerController : Controller {
@@ -18,14 +18,14 @@ namespace NidTid.WebUI.Controllers {
         }
 
         public ActionResult List() {
-
-            CustomersListViewModel model = new CustomersListViewModel {Customers = repository.Customers}; 
+            CustomersListViewModel model = new CustomersListViewModel {Customers = repository.Customers};
             return View(model);
         }
         
         [HttpGet]
         public ActionResult CustomerDetails(int id) {
             Customer selectedCustomer = repository.Customers.FirstOrDefault(c => c.Id == id);
+            
             return View(selectedCustomer);
         }
 
@@ -38,25 +38,23 @@ namespace NidTid.WebUI.Controllers {
             else { 
                 //FIXA FELMEDDELANDE
             }
-            return View(currentCustomer);
+            return RedirectToAction("CustomerDetails", "Customer");
         }
 
         public ViewResult Create() {
             
             return View("CustomerDetails", new Customer());
         }
+        
 
-        [WebMethod(true)]
-        public string FilteredCustomers(string term)
+        public ActionResult FilteredCustomers(string term)
         {
             var filteredCustomers = repository.Customers.Where(c => c.Name.StartsWith(term)).Select(c => new
             {
                 label = c.Name,
                 value = c.Id
             });
-
-            String json = JsonConvert.SerializeObject(filteredCustomers);
-            return json;
+            return Json(filteredCustomers, JsonRequestBehavior.AllowGet);
         }
 
     }

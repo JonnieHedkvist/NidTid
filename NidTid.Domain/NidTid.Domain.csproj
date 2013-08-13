@@ -48,14 +48,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICustomerRepository.cs" />
+    <Compile Include="Abstract\IProjectRepository.cs" />
     <Compile Include="Concrete\EFCustomerRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFProjectRepository.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Project.cs" />
+    <Compile Include="Migrations\201308121359233_Skanska AB.cs" />
+    <Compile Include="Migrations\201308121359233_Skanska AB.Designer.cs">
+      <DependentUpon>201308121359233_Skanska AB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201308121359233_Skanska AB.resx">
+      <DependentUpon>201308121359233_Skanska AB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
