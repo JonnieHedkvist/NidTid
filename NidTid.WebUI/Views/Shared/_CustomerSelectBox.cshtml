@@ -1,0 +1,24 @@
+﻿@model NidTid.Domain.Entities.Customer 
+
+<div id="customerSelectBox">
+    <div id="customerSearch">
+        <label for="customerAC">Snabbsök kund:</label>
+        <input type="text" name="customerAC" id="customerAC" />
+    </div>
+    <div id="projectSelect">
+        <label for"projectList>Projekt:</label>
+        <select id="projectList" name="projectList">
+            <option value="null">-- Välj Projekt --</option>
+            @if (Model.Project != null) {
+                foreach (var p in Model.Project) { 
+                    <option value=@p.Id>@p.Name</option>
+                }
+            }
+	    </select>
+    </div>
+    <div id="selectButtons">
+        <input type="button" id="newCustomer" value="Ny Kund" />
+        <input type="button" id="newProject" value="Nytt Projekt" />
+    </div>
+
+</div>

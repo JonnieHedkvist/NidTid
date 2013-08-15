@@ -1,0 +1,82 @@
+﻿@model NidTid.Domain.Entities.Project
+
+<div id="projectDetails">
+    <form id="projectForm" action="" method="post" >
+        <div id="prjFormTable">
+            <table>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Referens)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.Referens)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.FastBtn)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.FastBtn)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.KontoStr)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.KontoStr)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="clabel">
+                        @Html.LabelFor(model => model.Active)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.Active)
+                    </td>
+                </tr>
+            </table>
+            <div id="prjSaveBtn">
+                <input type="button" id="saveProject" value="Spara ändringar" />
+            </div>
+
+                   
+        </div>
+        <div id="prjDescription">
+            <table>
+                <tr>
+                <td class="clabel">
+                    @Html.LabelFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.EditorFor(model => model.Description)
+                </td>
+            </tr>
+            </table>
+        </div>
+        @Html.EditorFor(model => model.CustomerId)
+        @Html.EditorFor(model => model.Id)
+        @Html.EditorFor(model => model.UserId)
+    </form>
+</div>

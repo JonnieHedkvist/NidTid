@@ -18,10 +18,34 @@ namespace NidTid.WebUI.Controllers
             this.repository = projectRepository;
         }
 
-        public ActionResult List() {
-            ProjectsListViewModel model = new ProjectsListViewModel { Projects = repository.Projects };
-            return View(model);
+        [HttpGet]
+        public ActionResult ProjectDetails(int? projectId) {
+            Project selectedProject = new Project();
+            if(projectId != null){
+                selectedProject = repository.Projects.FirstOrDefault(p => p.Id == projectId);
+            }
+            
+            return PartialView(selectedProject);
         }
 
+        [HttpPost]
+        public String ProjectDetails(Project currentProject)
+        {
+            String message ="";
+            if (ModelState.IsValid)
+            {
+                repository.SaveProject(currentProject);
+                message = "Projektet har uppdaterats!";
+            }
+            else
+            {
+                //FIXA FELMEDDELANDE
+            }
+            return message;
+        }
+
+        public ActionResult Create() {
+            return PartialView("ProjectDetails", new Project());
+        }
     }
 }

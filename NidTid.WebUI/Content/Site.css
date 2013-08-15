@@ -54,36 +54,50 @@ body {
     background: #f3f3f3;
     width: auto;
     height: 1000px;
+    padding: 10px;
     margin-right: 35px;
     -moz-box-shadow:    inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
     box-shadow:         inset 0 0 10px #000000;
 }
 
-#contentleftbody {
+#contentBody {
     float: left;
     width: auto;
     padding: 18px;
     margin: 10px;
     margin-left: 30px;
 }
-    #contentleftbody legend {
-        font-weight: bold;
-    }
 
-#customerSearch {
-    background: #ebf5c8;
-    border-top: 1px solid #808080;
-    border-bottom: 1px solid #808080;
-    padding: 5px;
-    width: 310px;
+#customerTopDiv {
+    height: 100px;
 }
 
-#contentrightbody {
-    overflow:hidden;
-    padding: 18px;
+#customerSelectBox {
+    float:right;
+    width:auto;
+    background: #ebf5c8;
+}
+
+#customerWrapper {
+    float: left;
+    width: auto;
     margin: 10px;
 }
+
+#projectWrapper {
+    overflow:hidden;
+    margin: 10px;
+    padding-left: 25px;
+}
+
+
+#customerSearch {
+    padding: 5px;
+    width: auto;
+    font-size:medium;
+}
+
 
 #sub-menu {
     background: #ebf5c8;
@@ -101,6 +115,8 @@ body {
     margin-bottom: .2em;
 }
 .editor-label {
+    
+    width: 6em;
     font-size: small;
     font-weight: bold;
 }
@@ -109,6 +125,7 @@ body {
     }
 
 .clabel {
+    text-align:right;
     font-size: small;
     font-weight: bold;
 }
@@ -117,17 +134,28 @@ body {
     width: 15em;
 }
 .multi-line {
-    height: 5em;
+    width: 20em;
+    height: 7em;
     font-family: Verdana;
 }
 
+
+#prjFormTable {
+    float:left;
+}
+
+#prjDescription {
+    float: right;
+}
 
 
 /*
     Element styles---------------------*/
 
-.link {
+.createLink {
     color: black;
+    font-size:small;
+    margin-bottom:1.2em;
 }
 
 

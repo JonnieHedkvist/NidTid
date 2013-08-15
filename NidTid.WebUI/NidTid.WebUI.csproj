@@ -262,7 +262,10 @@
     <Content Include="Views\Customer\CustomerDetails.cshtml" />
     <Content Include="Views\Shared\CustomerAutoComplete.cshtml" />
     <Content Include="Views\Shared\LeftMenu.cshtml" />
-    <Content Include="Views\Project\List.cshtml" />
+    <Content Include="Views\Project\ProjectDetails.cshtml" />
+    <Content Include="Views\Shared\_CustomerPartial.cshtml" />
+    <Content Include="Views\Shared\_ProjectPartial.cshtml" />
+    <Content Include="Views\Shared\_CustomerSelectBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

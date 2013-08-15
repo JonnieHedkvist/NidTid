@@ -23,9 +23,12 @@ namespace NidTid.WebUI.Controllers {
         }
         
         [HttpGet]
-        public ActionResult CustomerDetails(int id) {
-            Customer selectedCustomer = repository.Customers.FirstOrDefault(c => c.Id == id);
-            
+        public ActionResult CustomerDetails(int? id) {
+            Customer selectedCustomer = new Customer();
+            if (id != null)
+            {
+                selectedCustomer = repository.Customers.FirstOrDefault(c => c.Id == id);
+            }
             return View(selectedCustomer);
         }
 
@@ -38,7 +41,7 @@ namespace NidTid.WebUI.Controllers {
             else { 
                 //FIXA FELMEDDELANDE
             }
-            return RedirectToAction("CustomerDetails", "Customer");
+            return RedirectToAction(actionName: "CustomerDetails", routeValues: new { id = currentCustomer.Id });;
         }
 
         public ViewResult Create() {
