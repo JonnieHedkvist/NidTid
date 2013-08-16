@@ -30,7 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -49,14 +50,40 @@
   <ItemGroup>
     <Compile Include="Abstract\ICustomerRepository.cs" />
     <Compile Include="Abstract\IProjectRepository.cs" />
+    <Compile Include="Abstract\IReportRepository.cs" />
+    <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\EFCustomerRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProjectRepository.cs" />
+    <Compile Include="Concrete\EFReportRepository.cs" />
+    <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Project.cs" />
-    <Compile Include="Migrations\201308121359233_Skanska AB.cs" />
-    <Compile Include="Migrations\201308121359233_Skanska AB.Designer.cs">
-      <DependentUpon>201308121359233_Skanska AB.cs</DependentUpon>
+    <Compile Include="Entities\Report.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Migrations\201308151253290_Initial.cs" />
+    <Compile Include="Migrations\201308151253290_Initial.Designer.cs">
+      <DependentUpon>201308151253290_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308151300505_Initial2.cs" />
+    <Compile Include="Migrations\201308151300505_Initial2.Designer.cs">
+      <DependentUpon>201308151300505_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308151329558_Reports.cs" />
+    <Compile Include="Migrations\201308151329558_Reports.Designer.cs">
+      <DependentUpon>201308151329558_Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308151349563_updateProjects.cs" />
+    <Compile Include="Migrations\201308151349563_updateProjects.Designer.cs">
+      <DependentUpon>201308151349563_updateProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308151352119_UserUpdate.cs" />
+    <Compile Include="Migrations\201308151352119_UserUpdate.Designer.cs">
+      <DependentUpon>201308151352119_UserUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308151419404_Report22.cs" />
+    <Compile Include="Migrations\201308151419404_Report22.Designer.cs">
+      <DependentUpon>201308151419404_Report22.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,8 +93,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201308121359233_Skanska AB.resx">
-      <DependentUpon>201308121359233_Skanska AB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201308151253290_Initial.resx">
+      <DependentUpon>201308151253290_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308151300505_Initial2.resx">
+      <DependentUpon>201308151300505_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308151329558_Reports.resx">
+      <DependentUpon>201308151329558_Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308151349563_updateProjects.resx">
+      <DependentUpon>201308151349563_updateProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308151352119_UserUpdate.resx">
+      <DependentUpon>201308151352119_UserUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308151419404_Report22.resx">
+      <DependentUpon>201308151419404_Report22.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

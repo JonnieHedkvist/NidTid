@@ -2,31 +2,36 @@
 @{
     ViewBag.Title = "Kunder";
 }
-<div id="customerTopDiv">
     @{
-        Html.RenderPartial("_CustomerSelectBox");
+    Html.RenderPartial("_CustomerSelectBox");
+    }
+
+<div id="customerLeftWrapper">
+    @{
+        Html.RenderPartial("_CustomerPartial");
     }
 </div>
-<div id="customerContent">
-    <fieldset>
-        <legend>@Model.Name</legend>
-        @if (TempData["message"] != null) { 
-            <div class="message">
-                @TempData["message"]
-            </div>
-        }
-    <div id="customerWrapper">
-        @{
-            Html.RenderPartial("_CustomerPartial");
-        }
-    </div>
 
-    <div id="projectWrapper">
-        @{
-            Html.RenderAction("ProjectDetails", "Project");
-        }
+<div id="customerRightContent">
+    <div id="projectSelect">
+        <label for="projectList">Projekt:</label>
+        <select id="projectList" name="projectList">
+            <option value="null">-- Välj Projekt --</option>
+            @if (Model.Project != null) {
+                foreach (var p in Model.Project) { 
+                    <option value=@p.Id>@p.Name</option>
+                }
+            }
+	    </select>
+        <input type="button" id="newProjectBtn" value="Nytt Projekt" />
     </div>
-    </fieldset>
+    <div id="projectWrapper">
+    @{
+        Html.RenderAction("ProjectDetails", "Project");
+    }
+    </div>
 </div>
+
+
 
 

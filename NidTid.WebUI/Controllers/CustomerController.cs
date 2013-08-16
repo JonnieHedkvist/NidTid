@@ -12,14 +12,15 @@ using System.Web.Services;
 namespace NidTid.WebUI.Controllers {
     public class CustomerController : Controller {
         private ICustomerRepository repository;
+        private IProjectRepository projectRepository;
 
         public CustomerController(ICustomerRepository customerRepository) {
             this.repository = customerRepository;
         }
 
-        public ActionResult List() {
+        public ActionResult CustomerProjectSelect() {
             CustomersListViewModel model = new CustomersListViewModel {Customers = repository.Customers};
-            return View(model);
+            return PartialView(model);
         }
         
         [HttpGet]
@@ -59,6 +60,18 @@ namespace NidTid.WebUI.Controllers {
             });
             return Json(filteredCustomers, JsonRequestBehavior.AllowGet);
         }
+
+        
+        public ActionResult FilteredProjects(int customerId) {
+            Customer tempCustomer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
+            var filteredProjects = tempCustomer.Project.Select(p => new 
+            {
+                label = p.Name,
+                value = p.Id
+            });
+            return Json(filteredProjects, JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }

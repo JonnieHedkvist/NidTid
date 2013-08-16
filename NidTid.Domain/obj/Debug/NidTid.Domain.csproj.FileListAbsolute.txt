@@ -7,6 +7,10 @@ C:\Users\Jonnie\Documents\Visual Studio 2012\Projects\NidTid\NidTid.Domain\bin\D
 C:\Users\Jonnie\Documents\Visual Studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\EntityFramework.xml
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.csprojResolveAssemblyReference.cache
-C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.SkanskaAB.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Initial.resources
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.csproj.GenerateResource.Cache
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Initial2.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Reports.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.updateProjects.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UserUpdate.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Report22.resources

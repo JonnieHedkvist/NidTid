@@ -1,7 +1,14 @@
 ﻿@model NidTid.Domain.Entities.Project
 
 <div id="projectDetails">
-
+    <fieldset>
+        <legend>@Model.Name</legend>
+            @if (TempData["message"] != null) { 
+                <div class="message">
+                    @TempData["message"]
+                </div>
+            }
+    
          
             <form id="projectForm" action="" method="post" >
                 <div id="prjFormTable">
@@ -10,53 +17,47 @@
                             <td class="clabel">
                                 @Html.LabelFor(model => model.Name)
                             </td>
-                        </tr>
-                        <tr>
                             <td>
-                                @Html.EditorFor(model => model.Name)
+                                <input type="text" class="onOff" name="Name" value="@Model.Name" />
                             </td>
                         </tr>
                         <tr>
                             <td class="clabel">
                                 @Html.LabelFor(model => model.Referens)
                             </td>
-                        </tr>
-                        <tr>
                             <td>
-                                @Html.EditorFor(model => model.Referens)
+                                <input type="text" class="onOff" name="Referens" value="@Model.Referens" />
                             </td>
                         </tr>
                         <tr>
                             <td class="clabel">
                                 @Html.LabelFor(model => model.FastBtn)
                             </td>
-                        </tr>
-                        <tr>
                             <td>
-                                @Html.EditorFor(model => model.FastBtn)
+                                <input type="text" class="onOff" name="FastBtn" value="@Model.FastBtn" />
                             </td>
                         </tr>
                         <tr>
                             <td class="clabel">
                                 @Html.LabelFor(model => model.KontoStr)
                             </td>
-                        </tr>
-                        <tr>
                             <td>
-                                @Html.EditorFor(model => model.KontoStr)
+                                <input type="text" class="onOff" name="KontoStr" value="@Model.KontoStr" />
                             </td>
                         </tr>
                         <tr>
                             <td class="clabel">
                                 @Html.LabelFor(model => model.Active)
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 @Html.EditorFor(model => model.Active)
                             </td>
                         </tr>
                     </table>
+                    @if (Model.User != null) {
+                        @Model.User.Name
+                    }
+                    
                     <div id="prjSaveBtn">
                         <input type="button" id="saveProject" value="Spara ändringar" />
                     </div>
@@ -83,5 +84,5 @@
 
                 
             </form>
-
+</fieldset>
 </div>

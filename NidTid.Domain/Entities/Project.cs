@@ -40,8 +40,8 @@ namespace NidTid.Domain.Entities
         public int CustomerId { get; set; }
 
         public virtual Customer Customer { get; set; }
-        //public virtual User User { get; set; }
-        //public virtual ICollection<Report> Report { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<Report> Report { get; set; }
         //public virtual ICollection<Bill> Bill { get; set; }
     }
 }

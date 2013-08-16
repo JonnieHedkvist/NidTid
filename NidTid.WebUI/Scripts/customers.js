@@ -24,6 +24,40 @@
         });
     });
 
+
+    $("#customerDropDown").change(function () {
+        var customerId = $("#customerDropDown option:selected").val();
+        alert(customerId);
+        $.ajax({
+            type: 'GET',
+            url: "/Customer/FilteredProjects",
+            data: {
+                customerId: customerId
+            },
+            success: function (json) {
+                $.each(json, function (i, value) {
+                    $('#projectDropDown').append($('<option>').text(value).attr('value', value));
+                });
+            }
+        });
+    });
+
+
+    $("#newProjectBtn").click(function () {
+        var customerId = $("#Id").val();
+        alert(customerId);
+        $.ajax({
+            type: 'GET',
+            url: "/Project/NewProject",
+            data: {
+                customerId: customerId
+            },
+            success: function (prj) {
+                $('#projectWrapper').html(prj);
+            }
+        });
+    });
+
     $(document.body).on("click", "#saveProject",function () {
         
         $.ajax({
@@ -59,12 +93,27 @@
 
 function toggleInputs(onOff) {
     $("#Name").prop('disabled', onOff);
-    $("#OrgNr").prop('disabled', onOff);
-    $("#Adress").prop('disabled', onOff);
-    $("#Phone1").prop('disabled', onOff);
-    $("#Phone2").prop('disabled', onOff);
-    $("#Email").prop('disabled', onOff);
+    $("#Referens").prop('disabled', onOff);
+    $("#FastBtn").prop('disabled', onOff);
+    $("#KontoStr").prop('disabled', onOff);
+    $("#Desription").prop('disabled', onOff);
+    $("#newProjectBtn").prop('disabled', onOff);
     $("#PostNr").prop('disabled', onOff);
     $("#PostOrt").prop('disabled', onOff);
     $("#Moms").prop('disabled', onOff);
 }
+
+
+/*
+------------------------Menu Options---------------*/
+
+$("#menuCustomer").click(function () {
+    alert("TJO!");
+    $.ajax({
+        type: 'GET',
+        url: "/Customer/CustomerDetails",
+        success: function (cstm) {
+            $('#contentBody').html(cstm);
+        }
+    });
+});

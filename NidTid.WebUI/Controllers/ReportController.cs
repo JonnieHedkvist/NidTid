@@ -6,10 +6,14 @@ using System.Web.Mvc;
 
 namespace NidTid.WebUI.Controllers
 {
-    public class NavController : Controller {
+    public class ReportController : Controller
+    {
+        //
+        // GET: /Report/
 
-        public String Menu() {
-            return "Menyn";
+        public ActionResult NewReport()
+        {
+            return View();
         }
 
     }

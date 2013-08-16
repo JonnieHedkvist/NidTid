@@ -1,89 +1,22 @@
 ﻿@model NidTid.Domain.Entities.Customer 
 
-    @using (Html.BeginForm("CustomerDetails", "Customer")) { 
-       
-            <table>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.Name)
-                    </td>
-                    <td>
-                        <input type="text" name="Name" class="formInput" value="@Model.Name"/>
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.OrgNr)
-                    </td>
-                    <td>    
-                        <input type="text" name="OrgNr" class="formInput" value="@Model.OrgNr"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.Adress)
-                    </td>
-                    <td>
-                       <input type="text" name="Adress" class="formInput" value="@Model.Adress"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.Phone1)
-                    </td>
-                    <td>    
-                        <input type="text" name="Phone1" class="formInput" value="@Model.Phone1"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.Phone2)
-                    </td>
-                    <td>
-                        <input type="text" name="Phone2" class="formInput" value="@Model.Phone2"/>
-                    </td>
-                </tr>
-                <tr>
-                    
-                     <td class="clabel">
-                        @Html.LabelFor(model => model.PostNr)
-                    </td>
-                    <td>    
-                        <input type="text" name="PostNr" class="formInput" value="@Model.PostNr"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.PostOrt)
-                    </td>
-                    <td>
-                        <input type="text" name="PostOrt" class="formInput" value="@Model.PostOrt"/>
-                    </td>
-                </tr>
-                <tr>
-                    
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.Email)
-                    </td>
-                    <td>    
-                        <input type="text" name="Email" class="formInput" value="@Model.Email"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="clabel">
-                        @Html.LabelFor(model => model.Moms)
-                    </td>
-                    <td>
-                        <input type="text" name="Moms" class="formInput" value="@Model.Moms"/>
-                    </td>
-                </tr>
+<h3>@Model.Name</h3>
+<div id="customerInfo">
+    
+    @Html.EditorFor(model => Model.Id)
+    @Model.OrgNr <br />
+    @Model.Adress <br />
+    @Model.PostNr
+    @Model.PostOrt <br />
+    @Model.Phone1 <br />
+    @Model.Email <br />
+    <br />
+</div>
+    <input type="button" id="btnUnlock" value="Redigera kunduppgifter" />
+    <br />
 
-            </table>
-        
-            <input type="button" id="btnUnlock" value="Redigera kunduppgifter" />
 
-   
-    }
+
+
     
     

@@ -1,0 +1,16 @@
+﻿@model NidTid.Domain.Entities.Report
+
+@{
+    ViewBag.Title = "NewReport";
+}
+
+@{
+        Html.RenderAction("CustomerProjectSelect", "Customer");
+    }
+
+<h2>NewReport</h2>
+
+
+@using (Html.BeginForm()) { 
+    @Html.EditorForModel()
+}

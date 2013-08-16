@@ -64,7 +64,7 @@ body {
 #contentBody {
     float: left;
     width: auto;
-    padding: 18px;
+    padding: 10px;
     margin: 10px;
     margin-left: 30px;
 }
@@ -73,22 +73,39 @@ body {
     height: 100px;
 }
 
-#customerSelectBox {
-    float:right;
-    width:auto;
-    background: #ebf5c8;
+
+#customerLeftWrapper {
+    float: left;
+    width: 250px;
+    height: inherit;
 }
 
-#customerWrapper {
-    float: left;
-    width: auto;
+#customerRightContent {
+    overflow:hidden;
+    width: 850px;
     margin: 10px;
+    padding-left: 5px;
+}
+
+#customerInfo {
+    margin-left: 10px;
+}
+
+#projectSelect {
+    overflow:hidden;
+    float: right;
+    width: 850px;
+    height: 40px;
+    text-align:right;
 }
 
 #projectWrapper {
-    overflow:hidden;
-    margin: 10px;
-    padding-left: 25px;
+    float: left;
+    width: 850px;
+}
+
+#projectDetails {
+
 }
 
 
@@ -96,6 +113,9 @@ body {
     padding: 5px;
     width: auto;
     font-size:medium;
+    background: #ebf5c8;
+    border-bottom: 1px solid #808080;
+    border-top: 1px solid #808080;
 }
 
 

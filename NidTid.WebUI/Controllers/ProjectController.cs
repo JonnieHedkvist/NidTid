@@ -44,8 +44,11 @@ namespace NidTid.WebUI.Controllers
             return message;
         }
 
-        public ActionResult Create() {
-            return PartialView("ProjectDetails", new Project());
+        public ActionResult NewProject(int customerId) {
+            Project newProject = new Project();
+            newProject.CustomerId = customerId;
+            newProject.Name = "Nytt Projekt";
+            return PartialView(newProject);
         }
     }
 }
