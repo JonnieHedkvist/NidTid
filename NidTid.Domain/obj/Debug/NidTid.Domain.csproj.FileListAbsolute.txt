@@ -14,3 +14,5 @@ C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\D
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.updateProjects.resources
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UserUpdate.resources
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Report22.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateReprot.resources

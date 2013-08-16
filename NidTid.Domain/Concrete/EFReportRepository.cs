@@ -16,9 +16,26 @@ namespace NidTid.Domain.Concrete
         }
 
 
-        public void SaveReport(Report report)
-        {
-
+        public void SaveReport(Report report) {
+            if (report.Id == 0)
+            {
+                context.Reports.Add(report);
+            }
+            else
+            {
+                Report dbReport = context.Reports.Find(report.Id);
+                if (dbReport != null)
+                {
+                    dbReport.Date = report.Date;
+                    dbReport.Deb = report.Deb;
+                    dbReport.EjDeb = report.EjDeb;
+                    dbReport.Km = report.Km;
+                    dbReport.Notes = report.Notes;
+                    dbReport.ProjectId = report.ProjectId;
+                    dbReport.UserId = report.UserId;
+                }
+            }
+            context.SaveChanges();
         }
     }
 

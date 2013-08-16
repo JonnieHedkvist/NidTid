@@ -19,9 +19,12 @@ namespace NidTid.Domain.Entities
 
         public Nullable<decimal> EjDeb { get; set; }
 
+        public Nullable<decimal> Km { get; set; }
+
         [DataType(DataType.MultilineText)]
         public string Notes { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public System.DateTime Date { get; set; }
 
         public int UserId { get; set; }

@@ -66,8 +66,8 @@ namespace NidTid.WebUI.Controllers {
             Customer tempCustomer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
             var filteredProjects = tempCustomer.Project.Select(p => new 
             {
-                label = p.Name,
-                value = p.Id
+                name = p.Name,
+                id = p.Id
             });
             return Json(filteredProjects, JsonRequestBehavior.AllowGet);
         }

@@ -1,15 +1,7 @@
 ﻿@model NidTid.Domain.Entities.Project
 
 <div id="projectDetails">
-    <fieldset>
-        <legend>@Model.Name</legend>
-            @if (TempData["message"] != null) { 
-                <div class="message">
-                    @TempData["message"]
-                </div>
-            }
     
-         
             <form id="projectForm" action="" method="post" >
                 <div id="prjFormTable">
                     <table>
@@ -84,5 +76,5 @@
 
                 
             </form>
-</fieldset>
+
 </div>

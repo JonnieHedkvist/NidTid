@@ -1,0 +1,74 @@
+﻿@model IEnumerable<NidTid.Domain.Entities.Report>
+
+<fieldset>
+    <legend>Dina senaste rapporter</legend>
+        <div class="StyledTable">
+            <table>
+                <tr>
+                    <td>
+                        Datum
+                    </td>
+                    <td>
+                        Kund
+                    </td>
+                    <td>
+                        Projekt
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Deb)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.EjDeb)
+                    </td>
+                    <td>
+                        Körsträcka
+                    </td>
+                    <td>
+                        Notering
+                    </td>
+                    <td>
+                        Användare
+                    </td>
+
+                    <td></td>
+                </tr>
+
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Customer.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Deb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EjDeb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Km)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.Name)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>
+                </tr>
+            }
+
+            </table>
+
+        </div>
+    </fieldset>

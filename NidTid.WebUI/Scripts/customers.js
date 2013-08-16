@@ -10,6 +10,8 @@
         delay: 5
     });
 
+    $('.datepicker').datepicker();
+
     $("#projectList").change(function () {
         var selectedValue = $("#projectList option:selected").val();
         $.ajax({
@@ -20,6 +22,7 @@
             },
             success: function (prj) {
                 $('#projectWrapper').html(prj);
+                showReports(selectedValue,null,5);
             }
         });
     });
@@ -27,7 +30,6 @@
 
     $("#customerDropDown").change(function () {
         var customerId = $("#customerDropDown option:selected").val();
-        alert(customerId);
         $.ajax({
             type: 'GET',
             url: "/Customer/FilteredProjects",
@@ -35,9 +37,12 @@
                 customerId: customerId
             },
             success: function (json) {
-                $.each(json, function (i, value) {
-                    $('#projectDropDown').append($('<option>').text(value).attr('value', value));
-                });
+                var sel = $("#projectDropDown");
+                sel.empty();
+                sel.append('<option value="null">-- Välj Projekt --</option>');
+                for (var i = 0; i < json.length; i++) {
+                    sel.append('<option value="' + json[i].id + '">' +json[i].name + '</option>');
+                }
             }
         });
     });
@@ -66,6 +71,22 @@
             data: $('#projectForm').serialize(),
             success: function (result) {
                 alert(result);
+            },
+            error: function (result) {
+                alert(result);
+            }
+        });
+    });
+
+    $(document.body).on("click", "#saveReport", function () {
+
+        $.ajax({
+            type: 'POST',
+            url: "/Report/SaveReport",
+            data: $('#reportForm').serialize(),
+            success: function (result) {
+                clearForm();
+                showReports(null, 1, 8);
             },
             error: function (result) {
                 alert(result);
@@ -103,7 +124,26 @@ function toggleInputs(onOff) {
     $("#Moms").prop('disabled', onOff);
 }
 
+function clearForm() {
+    $(':input').not(':button, :submit, :reset, :hidden').val('');
+}
 
+function showReports(projectId, userId, limit) {
+    $.ajax({
+        type: 'GET',
+        url: "/Report/List",
+        data:
+            {
+                ProjectId: projectId,
+                UserId: userId,
+                Limit: limit
+            },
+        success: function (reports) {
+            $('#reportList').html(reports);
+        }
+    });
+
+}
 /*
 ------------------------Menu Options---------------*/
 
