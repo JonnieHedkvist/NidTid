@@ -8,7 +8,7 @@
 <fieldset>
     <legend>Registrera ny timrapport</legend>
     <div id="newReportForm">
-        <form id="reportForm" action="" method="post" >
+        <form id="reportForm" action="" method="post" class="form-inline" >
             <div id="cstPrjSelect">
                 @{
                     Html.RenderAction("CustomerProjectSelect", "Customer");
@@ -16,32 +16,34 @@
             </div>
             <label for="UserId">Datum:</label>
             <input type="text" class="datepicker" name="Date" value="@System.DateTime.Now.ToShortDateString()" />
-            <label for="UserId">Användare:</label>
-            <input type="text" name="UserId" value="@Model.UserId" />
             <label for="Deb">Deb:</label>
             <input type="text" class="smallField" name="Deb" value="@Model.Deb" />h
             <label for="EjDeb">Ej deb:</label>
-            <input type="text" class="smallField" name="EjDeb" value="@Model.EjDeb" />h
+            <input type="text" class="smallField" name="EjDeb" value="@Model.EjDeb" />
+            <p class="help-block">Antal timmar som ej ska debiteras kund.</p>
             <label for="Km">Körsträcka:</label>
             <input type="text" class="smallField" name="Km" value="@Model.Km" />km
             <label for="Notes">Notering:</label>
             <input type="text" name="Notes" value="@Model.Notes" />
 
-            <input type="button" id="saveReport" value="Spara rapport"/>
+            <input type="button" class="btn" id="saveReport" value="Spara rapport"/>
 
             @Html.EditorFor(model => model.BillId)
             @Html.EditorFor(model => model.Id)
             @Html.EditorFor(model => model.SalaryId)
         
-        
+        <input type="text" name="UserId" class="hidden" value="1" />
         </form>
     </div>
 
 </fieldset>
 
 
-<div id="reportList">
+<fieldset>
+    <legend>Dina senaste timrapporter</legend>
+    <div id="reportList">
         @{
             Html.RenderAction("List", "Report", new{UserId=1, Limit=8 });
         }
 </div>
+</fieldset>

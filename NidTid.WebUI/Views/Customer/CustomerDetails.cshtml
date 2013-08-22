@@ -13,27 +13,40 @@
 </div>
 
 <div id="customerRightContent">
-    <div id="projectSelect">
-        <label for="projectList">Projekt:</label>
-        <select id="projectList" name="projectList">
-            <option value="null">-- Välj Projekt --</option>
-            @if (Model.Project != null) {
-                foreach (var p in Model.Project) { 
-                    <option value=@p.Id>@p.Name</option>
-                }
-            }
-	    </select>
-        <input type="button" id="newProjectBtn" value="Nytt Projekt" />
-    </div>
-    <div id="projectWrapper">
-    @{
-        Html.RenderAction("ProjectDetails", "Project");
-    }
     
-    </div>
-    <div id="reportList">
+
+    <div id="projectMain">
+        <div id="projectTitle" class="divHeader">
+            Projektdetaljer
+            <div id="projectSelect">
+                <label for="projectList">Projekt:</label>
+                <select id="projectList" name="projectList">
+                    <option value="null">-- Välj Projekt --</option>
+                    @if (Model.Project != null) {
+                        foreach (var p in Model.Project) { 
+                            <option value=@p.Id>@p.Name</option>
+                        }
+                    }
+	            </select>
+                <input type="button" id="newProjectBtn" value="Nytt Projekt" />
+            </div>
+        </div>
+        <div id="projectWrapper">
+            @{
+                Html.RenderAction("ProjectDetails", "Project");
+            }
+        </div>
+        <div id="reportListWrapper">
+                <fieldset>
+                    <legend align="right">Senaste tidrapporter för projektet</legend>
+                    <div id="reportList">
+                    </div>
+                </fieldset>
+            
+        </div>
 
     </div>
+    
 </div>
 
 

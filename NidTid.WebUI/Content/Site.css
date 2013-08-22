@@ -37,6 +37,7 @@ body {
     height: 100%;
     margin: 0px;
     margin-right: 35px;
+    background: #6895b7;
 }
 
 .left-menu{
@@ -51,7 +52,7 @@ body {
 
 #content {
     overflow:hidden;
-    background: #f3f3f3;
+    background: #fff;
     width: auto;
     height: 1000px;
     padding: 10px;
@@ -94,14 +95,35 @@ body {
 #projectSelect {
     overflow:hidden;
     float: right;
-    width: 850px;
-    height: 40px;
     text-align:right;
+}
+
+.divHeader {
+    background: rgb(172,211,229); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(172,211,229,1) 0%, rgba(104,149,183,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(172,211,229,1)), color-stop(100%,rgba(104,149,183,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(172,211,229,1) 0%,rgba(104,149,183,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(172,211,229,1) 0%,rgba(104,149,183,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(172,211,229,1) 0%,rgba(104,149,183,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(172,211,229,1) 0%,rgba(104,149,183,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acd3e5', endColorstr='#6895b7',GradientType=0 ); /* IE6-9 */
+    height: 40px;
+    border-bottom: 1px solid #808080;
+    float: left;
+    overflow:hidden;
+    width: 100%;
+    padding-top: 6px;
+}
+
+#projectMain {
+    border: 1px solid #808080;
+    float: left;
+    width: 840px;
 }
 
 #projectWrapper {
     float: left;
-    width: 850px;
+    width: 100%;
 }
 
 #projectDetails {
@@ -160,6 +182,10 @@ body {
     width: 20em;
     height: 7em;
     font-family: Verdana;
+}
+
+.smallField {
+    width: 3em;
 }
 
 

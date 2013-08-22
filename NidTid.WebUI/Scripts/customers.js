@@ -118,7 +118,6 @@ function toggleInputs(onOff) {
     $("#FastBtn").prop('disabled', onOff);
     $("#KontoStr").prop('disabled', onOff);
     $("#Desription").prop('disabled', onOff);
-    $("#newProjectBtn").prop('disabled', onOff);
     $("#PostNr").prop('disabled', onOff);
     $("#PostOrt").prop('disabled', onOff);
     $("#Moms").prop('disabled', onOff);

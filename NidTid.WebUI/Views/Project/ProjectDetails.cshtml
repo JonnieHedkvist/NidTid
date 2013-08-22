@@ -46,10 +46,8 @@
                             </td>
                         </tr>
                     </table>
-                    @if (Model.User != null) {
-                        @Model.User.Name
-                    }
-                    
+
+                   
                     <div id="prjSaveBtn">
                         <input type="button" id="saveProject" value="Spara ändringar" />
                     </div>
@@ -57,18 +55,10 @@
                    
                 </div>
                 <div id="prjDescription">
-                    <table>
-                        <tr>
-                        <td class="clabel">
-                            @Html.LabelFor(model => model.Description)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                    <fieldset>
+                        <legend align="right">Arbetsbeskrivning</legend>
                             @Html.EditorFor(model => model.Description)
-                        </td>
-                    </tr>
-                    </table>
+                    </fieldset>
                 </div>
                 @Html.EditorFor(model => model.CustomerId)
                 @Html.EditorFor(model => model.Id)
