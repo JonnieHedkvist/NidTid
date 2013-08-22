@@ -11,40 +11,33 @@
     @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.10.3.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/customers.js")"></script>
-    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-responsive.min.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <div class="navbar navbar-fixed-top">  
+        <div class="navbar-inner" id="header">  
+            <div class="container-fluid">
+                <a class="brand" href="#"><img src="~/Content/Icons/NidLogo.png" alt="DinTid" height="62" width="236"></a>  
+                <p class="navbar-text pull-right">Inloggad som <a href="#">jonnie.hedkvist@gmail.com</a></p>
+            </div>   
+        </div>  
+    </div>  
 
-        <div id="header">
-            <div id="home">
-                <img src="~/Content/Icons/home.png" alt="Smiley face" height="50" width="50">
-            </div>
-            <div id="logo">
-                <h2>DinTid.se</h2>
-            </div>
-            <div id="login">
-                Inloggad som: jonnie.hedkvist@gmail.com
-            </div>
-        </div>
-       
-
-        <div id="body">
-            <div class="left-menu">
+    <div class="container-fluid" id="big-body">  
+        <div class="row-fluid">  
+            <div class="span1" id="left-menu">  
                 @{
                     Html.RenderPartial("LeftMenu");
                 }
-            </div>
-            <div id="content">
-                <div id="contentTop">
-                    
-                </div>
-                <div id="contentBody">
-                    @RenderBody()
-                </div>
-                
             </div>  
-        </div>
+            <div class="span11" id="content">  
+                @RenderBody()
+            </div> 
+        </div> 
+    </div>
+
+
 
     
 

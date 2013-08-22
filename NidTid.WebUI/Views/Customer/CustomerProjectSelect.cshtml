@@ -1,7 +1,6 @@
 ﻿@model NidTid.WebUI.Models.CustomersListViewModel
 
 <div id="customerSelect">
-    <label for="customerDropDown">Kund:</label>
         <select id="customerDropDown" name="customerDropDown">
             <option value="null">-- Välj Kund --</option>
                 @foreach (var c in Model.Customers) { 
@@ -11,8 +10,7 @@
 </div>
 
 <div id="ProjectSelect">
-    <label for="projectDropDown">Projekt:</label>
-        <select id="projectDropDown" name="ProjectId">
+        <select id="projectDropDown" name="Report.ProjectId">
             <option value="null">-- Välj Projekt --</option>
                 
         </select>

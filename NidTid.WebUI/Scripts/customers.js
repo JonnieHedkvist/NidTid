@@ -89,7 +89,7 @@
                 showReports(null, 1, 8);
             },
             error: function (result) {
-                alert(result);
+                alert("Ett fel inträffade, försök igen.");
             }
         });
     });
@@ -146,13 +146,3 @@ function showReports(projectId, userId, limit) {
 /*
 ------------------------Menu Options---------------*/
 
-$("#menuCustomer").click(function () {
-    alert("TJO!");
-    $.ajax({
-        type: 'GET',
-        url: "/Customer/CustomerDetails",
-        success: function (cstm) {
-            $('#contentBody').html(cstm);
-        }
-    });
-});

@@ -1,36 +1,39 @@
 ﻿@model IEnumerable<NidTid.Domain.Entities.Report>
 
 
-        <div class="StyledTable">
-            <table>
-                <tr>
-                    <td>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                     <tr>
+                    <th>
                         Datum
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Kund
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Projekt
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Deb)
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.EjDeb)
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Körsträcka
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Notering
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Användare
-                    </td>
+                    </th>
 
-                    <td></td>
+                    <th></th>
                 </tr>
+                </thead>
+               
 
             @foreach (var item in Model) {
                 <tr>

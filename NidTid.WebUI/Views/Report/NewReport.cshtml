@@ -1,49 +1,96 @@
-﻿@model NidTid.Domain.Entities.Report
+﻿@model NidTid.WebUI.Models.ReportViewModel
 
 @{
     ViewBag.Title = "Timrapport";
 }
 
+<div class="container">
+    
+    <div class="row top-row">
+        <div class="span11">
+            <form class="well form-horizontal" id="reportForm" action="" method="post">  
+                <fieldset>  
+                    <legend>Registrera ny timrapport</legend> 
+                        
+                        <div class="control-group">  
+                            <label class="control-label" for="customerDropDown">Kund</label>  
+                            <div class="controls">  
+                                <select id="customerDropDown" name="customerDropDown">
+                                    <option value="null">-- Välj Kund --</option>
+                                        @foreach (var c in Model.Customers) { 
+                                            <option value=@c.Id>@c.Name</option>
+                                        }
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="control-group">  
+                            <label class="control-label" for="Report.ProjectId">Projekt</label>  
+                            <div class="controls">  
+                                <select id="projectDropDown" name="Report.ProjectId">
+                                    <option value="null">-- Välj Projekt --</option>
+                                </select> 
+                            </div>  
+                        </div>
+                        <div class="control-group">  
+                            <label class="control-label" for="Report.Date">Datum</label>  
+                            <div class="controls">  
+                                <input type="text" class="datepicker input-small" name="Report.Date" value="@System.DateTime.Now.ToShortDateString()" /> 
+                            </div>  
+                        </div>
+                        <div class="control-group">  
+                            <label class="control-label" for="Report.Deb">Deb</label>  
+                            <div class="controls">  
+                                <input type="text" class="smallField" name="Report.Deb" value="@Model.Report.Deb" /> 
+                            </div>  
+                        </div>
+                        <div class="control-group">  
+                            <label class="control-label" for="Report.EjDeb">EjDeb</label>  
+                            <div class="controls">  
+                                <input type="text" class="smallField" name="Report.EjDeb" value="@Model.Report.EjDeb" />
+                                <span class="help-inline">Antal timmar som ej ska debiteras kund</span>
+                            </div>  
+                        </div>
+                        <div class="control-group">  
+                            <label class="control-label" for="Report.Km">Körsträcka</label>  
+                            <div class="controls">  
+                                <input type="text" class="smallField" name="Report.Km" value="@Model.Report.Km" />
+                            </div>  
+                        </div>
+                        <div class="control-group">  
+                            <label class="control-label" for="Report.Notes">Notering</label>  
+                            <div class="controls">  
+                              <textarea class="input-xlarge" name="Report.Notes" id="textarea" rows="3"></textarea>  
+                            </div>  
+                        </div>
 
-<fieldset>
-    <legend>Registrera ny timrapport</legend>
-    <div id="newReportForm">
-        <form id="reportForm" action="" method="post" class="form-inline" >
-            <div id="cstPrjSelect">
-                @{
-                    Html.RenderAction("CustomerProjectSelect", "Customer");
-                }
-            </div>
-            <label for="UserId">Datum:</label>
-            <input type="text" class="datepicker" name="Date" value="@System.DateTime.Now.ToShortDateString()" />
-            <label for="Deb">Deb:</label>
-            <input type="text" class="smallField" name="Deb" value="@Model.Deb" />h
-            <label for="EjDeb">Ej deb:</label>
-            <input type="text" class="smallField" name="EjDeb" value="@Model.EjDeb" />
-            <p class="help-block">Antal timmar som ej ska debiteras kund.</p>
-            <label for="Km">Körsträcka:</label>
-            <input type="text" class="smallField" name="Km" value="@Model.Km" />km
-            <label for="Notes">Notering:</label>
-            <input type="text" name="Notes" value="@Model.Notes" />
 
-            <input type="button" class="btn" id="saveReport" value="Spara rapport"/>
-
-            @Html.EditorFor(model => model.BillId)
-            @Html.EditorFor(model => model.Id)
-            @Html.EditorFor(model => model.SalaryId)
+                        <input type="button" class="btn btn-info" id="saveReport" value="Spara rapport"/>
+                        
+                        @Html.EditorFor(model => model.Report.BillId)
+                        @Html.EditorFor(model => model.Report.Id)
+                        @Html.EditorFor(model => model.Report.SalaryId)
         
-        <input type="text" name="UserId" class="hidden" value="1" />
-        </form>
+                    <input type="text" name="Report.UserId" class="hidden" value="1" />
+                </fieldset>
+            </form>
+        </div>
     </div>
 
-</fieldset>
 
+    <div class="row">
+        <div class="span1">
 
-<fieldset>
-    <legend>Dina senaste timrapporter</legend>
-    <div id="reportList">
-        @{
-            Html.RenderAction("List", "Report", new{UserId=1, Limit=8 });
-        }
+        </div>
+        <div class="span10">
+            <fieldset>
+                <legend>Dina senaste timrapporter</legend>
+                <div id="reportList">
+                    @{
+                        Html.RenderAction("List", "Report", new{UserId=1, Limit=8 });
+                    }
+                </div>
+            </fieldset>
+        </div>
+    </div>
 </div>
-</fieldset>
+
