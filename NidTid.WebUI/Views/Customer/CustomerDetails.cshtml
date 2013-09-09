@@ -1,54 +1,41 @@
-﻿
+﻿@model NidTid.Domain.Entities.Customer
+
 @{
     ViewBag.Title = "Kunder";
 }
-    @{
-    Html.RenderPartial("_CustomerSelectBox");
-    }
 
-<div id="customerLeftWrapper">
-    @{
-        Html.RenderPartial("_CustomerPartial");
-    }
-</div>
-
-<div id="customerRightContent">
-    
-
-    <div id="projectMain">
-        <div id="projectTitle" class="divHeader">
-            Projektdetaljer
-            <div id="projectSelect">
-                <label for="projectList">Projekt:</label>
-                <select id="projectList" name="projectList">
-                    <option value="null">-- Välj Projekt --</option>
-                    @if (Model.Project != null) {
-                        foreach (var p in Model.Project) { 
-                            <option value=@p.Id>@p.Name</option>
-                        }
-                    }
-	            </select>
-                <input type="button" id="newProjectBtn" value="Nytt Projekt" />
-            </div>
+<div class="container">
+    <div class="row-fluid top-row">
+        <div class="span3">
+            Sök kund:<input type="text" class="input-medium search-query" name="customerAC" id="customerAC" />
         </div>
-        <div id="projectWrapper">
+        <div class="span9">
+            <select id="projectList" name="projectList">
+                <option value="null">-- Välj Projekt --</option>
+                @if (Model.Project != null) {
+                    foreach (var p in Model.Project) { 
+                        <option value=@p.Id>@p.Name</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row top-row">
+        <div class="span3 well">
+            @{
+                Html.RenderPartial("_CustomerPartial");
+            }
+        </div>
+        <div class="span9" id="projectWrapper">
             @{
                 Html.RenderAction("ProjectDetails", "Project");
             }
-        </div>
-        <div id="reportListWrapper">
-                <fieldset>
-                    <legend align="right">Senaste tidrapporter för projektet</legend>
-                    <div id="reportList">
-                    </div>
-                </fieldset>
             
         </div>
-
     </div>
-    
 </div>
 
+            
 
 
 

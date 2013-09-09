@@ -21,11 +21,18 @@ namespace NidTid.WebUI.Controllers
         [HttpGet]
         public ActionResult ProjectDetails(int? projectId) {
             Project selectedProject = new Project();
+            ProjectViewModel project = new ProjectViewModel();
             if(projectId != null){
                 selectedProject = repository.Projects.FirstOrDefault(p => p.Id == projectId);
+                decimal debTime = (from r in selectedProject.Report
+                                select r.Deb).Sum() ?? 0;
+                project.TotalHours = debTime;
             }
             
-            return PartialView(selectedProject);
+            project.Project = selectedProject;
+            
+            
+            return PartialView(project);
         }
 
         [HttpPost]

@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<NidTid.Domain.Entities.Report>
 
-
         <div>
-            <table class="table table-striped">
+            <table class="table table-striped" style="border-collapse:collapse;">
                 <thead>
                      <tr>
                     <th>
@@ -24,9 +23,6 @@
                         Körsträcka
                     </th>
                     <th>
-                        Notering
-                    </th>
-                    <th>
                         Användare
                     </th>
 
@@ -36,7 +32,7 @@
                
 
             @foreach (var item in Model) {
-                <tr>
+                <tr data-toggle="collapse" data-target="#@item.Id" class="accordion-toggle">
                     <td>
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
@@ -56,19 +52,35 @@
                         @Html.DisplayFor(modelItem => item.Km)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Notes)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.User.Name)
                     </td>
 
                     <td>
-                        @Html.ActionLink("Ändra", "Edit", new { id=item.Id }) |
-                        @Html.ActionLink("Radera", "Delete", new { id=item.Id })
+                        <a class="btn btn-info btn-small"><i class="icon-edit icon-white"></i>Ändra</a> |
+                        <a class="btn btn-danger btn-small"><i class="icon-trash icon-white"></i>Ta bort</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8" class="hiddenRow">
+                        <div class="accordian-body collapse" id="@item.Id">
+                        <table>
+                            <tr>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="icon-pencil"></i>
+                                </td>
+                                <td colspan="8">
+                                    @item.Notes
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
                     </td>
                 </tr>
             }
 
             </table>
-
+            
         </div>

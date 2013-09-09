@@ -37,6 +37,7 @@ namespace NidTid.WebUI.Controllers
         public String SaveReport(ReportViewModel reportModel)
         {
             Report report = reportModel.Report;
+            report.UserId = 1;
             String message = "";
             if (ModelState.IsValid) {
                 repository.SaveReport(report);
@@ -56,6 +57,7 @@ namespace NidTid.WebUI.Controllers
             var k = filteredReports.ToList().Count;
             return PartialView(filteredReports);
         }
+
 
 
     }

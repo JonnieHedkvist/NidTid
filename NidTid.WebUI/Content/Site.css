@@ -1,13 +1,13 @@
 ﻿/* Main Layout
 ------------------------------------------------------------*/
 #header {
-    background: #373737;
+    background: #5c5c5c;
     border-bottom: 4px solid black;
 }
 
 #big-body {
     margin-top: 86px;
-    background: #808080;
+    background: #f3ebd3;
 }
 
 #content {
@@ -16,16 +16,17 @@
     -moz-box-shadow:    inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
     box-shadow:         inset 0 0 10px #000000;
+    height:1000px;
 }
 
 #left-menu {
-    margin-top: 30px;
-    
+    margin-top: 30px;   
 }
 
 .top-row {
     margin-top: 20px;
 }
+
 
 
 /*--------------------------------Form styles-----------------------------*/
@@ -40,8 +41,13 @@ div.ui-datepicker{
 }
 
 
+
 /*---------Element styles---------------------*/
 
 
 
 /*-------- Table styles--------------*/
+
+.hiddenRow {
+    padding: 0 !important;
+}

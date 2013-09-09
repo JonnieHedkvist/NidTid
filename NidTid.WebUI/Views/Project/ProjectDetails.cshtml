@@ -1,70 +1,93 @@
-﻿@model NidTid.Domain.Entities.Project
+﻿@model NidTid.WebUI.Models.ProjectViewModel
 
-<div id="projectDetails">
-    
-            <form id="projectForm" action="" method="post" >
-                <div id="prjFormTable">
-                    <table>
-                        <tr>
-                            <td class="clabel">
-                                @Html.LabelFor(model => model.Name)
-                            </td>
-                            <td>
-                                <input type="text" class="onOff" name="Name" value="@Model.Name" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="clabel">
-                                @Html.LabelFor(model => model.Referens)
-                            </td>
-                            <td>
-                                <input type="text" class="onOff" name="Referens" value="@Model.Referens" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="clabel">
-                                @Html.LabelFor(model => model.FastBtn)
-                            </td>
-                            <td>
-                                <input type="text" class="onOff" name="FastBtn" value="@Model.FastBtn" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="clabel">
-                                @Html.LabelFor(model => model.KontoStr)
-                            </td>
-                            <td>
-                                <input type="text" class="onOff" name="KontoStr" value="@Model.KontoStr" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="clabel">
-                                @Html.LabelFor(model => model.Active)
-                            </td>
-                            <td>
-                                @Html.EditorFor(model => model.Active)
-                            </td>
-                        </tr>
-                    </table>
-
-                   
-                    <div id="prjSaveBtn">
-                        <input type="button" id="saveProject" value="Spara ändringar" />
-                    </div>
-
-                   
+<div class="container span12 well" id="projectDetails">
+    <form id="projectForm" action="" method="post">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="control-group">  
+                    <label class="control-label" for="Name">Projektnamn</label>  
+                    <div class="controls">  
+                        <input type="text" class="onOff" name="Name" value="@Model.Project.Name" /> 
+                    </div>  
                 </div>
-                <div id="prjDescription">
+                <div class="control-group">  
+                    <label class="control-label" for="Referens">Referens</label>  
+                    <div class="controls">  
+                        <input type="text" class="onOff" name="Name" value="@Model.Project.Referens" /> 
+                    </div>  
+                </div>
+                <div class="control-group">  
+                    <label class="control-label" for="FastBtn">Fastighetsbeteckning</label>  
+                    <div class="controls">  
+                        <input type="text" class="onOff" name="Name" value="@Model.Project.FastBtn" /> 
+                    </div>  
+                </div>
+                <div class="control-group">  
+                    <label class="control-label" for="KontoStr">Kontosträng</label>  
+                    <div class="controls">  
+                        <input type="text" class="onOff" name="KontoStr" value="@Model.Project.KontoStr" /> 
+                    </div>  
+                </div>
+                
+                <input type="button" class="btn btn-success" id="saveProject" value="Spara ändringar" />
+            </div>
+
+            <div class="span6 offset1">
+                <div class="row">
+                    <div class="control-group">
+                        <label class="control-label" for="Description">Arbetsbeskrivning</label>  
+                    <div class="controls">  
+                        <textarea class="input-xxlarge" name="Description" id="textarea" rows="5">@Model.Project.Description</textarea> 
+                    </div>
+                </div>
+                </div>
+                <div class="row">
                     <fieldset>
-                        <legend align="right">Arbetsbeskrivning</legend>
-                            @Html.EditorFor(model => model.Description)
+                        <legend>Sammanfattning</legend>
+                        <form class="well form-inline">
+                            <div class="row-fluid">
+                                <div class="span7">
+                                    <label class="control-label" for="KontoStr">Total tid:</label>
+                                    <input type="text" class="smallField" value="@Model.TotalHours">  
+                                    -varav ej debiterbart:<input type="text" class="smallField">
+                                </div>
+                                <div class="span5">
+                                    <label class="control-label" for="KontoStr">Körsträcka:</label>
+                                    <input type="text" class="smallField">
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <label class="checkbox">  
+                                    @Html.EditorFor(model => model.Project.Active) Aktivt
+                                </label>
+                            </div>  
+                        </form>
                     </fieldset>
                 </div>
-                @Html.EditorFor(model => model.CustomerId)
-                @Html.EditorFor(model => model.Id)
-                @Html.EditorFor(model => model.UserId)
-
-                
-            </form>
-
+            </div>
+        </div>
+        @Html.EditorFor(model => model.Project.CustomerId)
+        @Html.EditorFor(model => model.Project.Id)
+        @Html.EditorFor(model => model.Project.UserId)
+</form>
+    
 </div>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span9">
+            <fieldset>
+                <legend>Senaste tidrapporter för projektet</legend>
+                <div id="reportList">
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+        
+
+
+                   
+                
+
+

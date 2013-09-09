@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Models\CustomersListViewModel.cs" />
+    <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="Models\ReportViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -273,7 +274,6 @@
     <Content Include="Views\Shared\LeftMenu.cshtml" />
     <Content Include="Views\Project\ProjectDetails.cshtml" />
     <Content Include="Views\Shared\_CustomerPartial.cshtml" />
-    <Content Include="Views\Shared\_CustomerSelectBox.cshtml" />
     <Content Include="Views\Project\NewProject.cshtml" />
     <Content Include="Views\Report\NewReport.cshtml" />
     <Content Include="Views\Customer\CustomerProjectSelect.cshtml" />
