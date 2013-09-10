@@ -77,10 +77,6 @@
     <Compile Include="Migrations\201308151349563_updateProjects.Designer.cs">
       <DependentUpon>201308151349563_updateProjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201308151352119_UserUpdate.cs" />
-    <Compile Include="Migrations\201308151352119_UserUpdate.Designer.cs">
-      <DependentUpon>201308151352119_UserUpdate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201308151419404_Report22.cs" />
     <Compile Include="Migrations\201308151419404_Report22.Designer.cs">
       <DependentUpon>201308151419404_Report22.cs</DependentUpon>
@@ -88,6 +84,18 @@
     <Compile Include="Migrations\201308160852480_UpdateReprot.cs" />
     <Compile Include="Migrations\201308160852480_UpdateReprot.Designer.cs">
       <DependentUpon>201308160852480_UpdateReprot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309090949141_userUpdate.cs" />
+    <Compile Include="Migrations\201309090949141_userUpdate.Designer.cs">
+      <DependentUpon>201309090949141_userUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309091253060_uiyertUSER.cs" />
+    <Compile Include="Migrations\201309091253060_uiyertUSER.Designer.cs">
+      <DependentUpon>201309091253060_uiyertUSER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309091254368_UpdateUserRole.cs" />
+    <Compile Include="Migrations\201309091254368_UpdateUserRole.Designer.cs">
+      <DependentUpon>201309091254368_UpdateUserRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,14 +117,20 @@
     <EmbeddedResource Include="Migrations\201308151349563_updateProjects.resx">
       <DependentUpon>201308151349563_updateProjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201308151352119_UserUpdate.resx">
-      <DependentUpon>201308151352119_UserUpdate.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201308151419404_Report22.resx">
       <DependentUpon>201308151419404_Report22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201308160852480_UpdateReprot.resx">
       <DependentUpon>201308160852480_UpdateReprot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309090949141_userUpdate.resx">
+      <DependentUpon>201309090949141_userUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309091253060_uiyertUSER.resx">
+      <DependentUpon>201309091253060_uiyertUSER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309091254368_UpdateUserRole.resx">
+      <DependentUpon>201309091254368_UpdateUserRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

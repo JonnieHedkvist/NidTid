@@ -1,5 +1,10 @@
 ﻿<div class="left-menu">
-    <img src="~/Content/Icons/time.png" alt="Smiley face" id="menuTime">
+    
+    <a rel="tooltip" title="Rapportera tid" href="@Url.Action("NewReport", "Report")"><img src="~/Content/Icons/time.png" alt="Smiley face" id="menuTime"></a>
     <br />
-    <img src="~/Content/Icons/customers.png" alt="Smiley face" id="menuCustomer">
+    <a  rel="tooltip" title="Kunder & projekt" href="@Url.Action("CustomerDetails", "Customer")"><img src="~/Content/Icons/users.png" alt="Smiley face" id="menuCustomer"></a>
+    <br />
+    <img src="~/Content/Icons/calendar.png" alt="Smiley face" id="menuCalendar">
+    <br />
+    <img src="~/Content/Icons/spreadsheet.png" alt="Smiley face" id="menuSpreadsheet">
 </div>

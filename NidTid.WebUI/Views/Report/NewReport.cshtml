@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Timrapport";
+    var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.Current.User).CustomIdentity;
 }
 
 <div class="container">
@@ -45,7 +46,7 @@
                         </div>
                         <input type="button" class="btn btn-success" id="saveReport" value="Spara rapport"/> 
                         
-                    
+                        <input type="hidden" id="UserId" name="Report.UserId" value="@identity.UserId" />
                         @Html.EditorFor(model => model.Report.BillId)
                         @Html.EditorFor(model => model.Report.Id)
                         @Html.EditorFor(model => model.Report.SalaryId)
@@ -60,7 +61,7 @@
                 <p class="help-block text-right"> Klicka på en rapport för att se notering. </p>
                 <div id="reportList">
                     @{
-                        Html.RenderAction("List", "Report", new{UserId=1, Limit=8 });
+                        Html.RenderAction("List", "Report", new{UserId=identity.UserId, Limit=8 });
                     }
                 </div>
             </fieldset>

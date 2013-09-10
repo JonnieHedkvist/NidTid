@@ -1,0 +1,35 @@
+﻿@model NidTid.WebUI.Models.LoginViewModel
+@{
+    ViewBag.Title = "Logga in";
+}
+ 
+
+<section class="center">
+    <div class="container login">
+        <div class="row top-row fluid">
+            <div class="center span4 well">
+                <legend>Logga in</legend>
+                @Html.ValidationSummary(true)
+                <br/>
+                @using (Html.BeginForm(null, null, new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                {
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    <br/>
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                    <br/>    
+                    <label>
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </label>
+                    <br/> 
+                    <input type="submit" value="Log in" />
+                }
+            </div>
+        </div>
+    </div>
+    <p class="text-center muted ">&copy; Copyright 2013 - Async Interactive AB</p>
+</section>

@@ -16,3 +16,5 @@ C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\D
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Report22.resources
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.csprojResolveAssemblyReference.cache
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateReprot.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.uiyertUSER.resources
+C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateUserRole.resources

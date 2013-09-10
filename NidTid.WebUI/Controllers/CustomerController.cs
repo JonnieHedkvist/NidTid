@@ -24,6 +24,7 @@ namespace NidTid.WebUI.Controllers {
         }
         
         [HttpGet]
+        [Authorize]
         public ActionResult CustomerDetails(int? id) {
             Customer selectedCustomer = new Customer();
             if (id != null)

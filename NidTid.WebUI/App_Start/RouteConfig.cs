@@ -16,7 +16,7 @@ namespace NidTid.WebUI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Customer", action = "CustomerDetails", id = UrlParameter.Optional }
+                defaults: new { controller = "Report", action = "NewReport", id = UrlParameter.Optional }
             );
         }
     }

@@ -25,6 +25,7 @@ namespace NidTid.WebUI.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult NewReport()
         {
             ReportViewModel report = new ReportViewModel();
@@ -37,7 +38,8 @@ namespace NidTid.WebUI.Controllers
         public String SaveReport(ReportViewModel reportModel)
         {
             Report report = reportModel.Report;
-            report.UserId = 1;
+            var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.User).CustomIdentity;
+            report.UserId = identity.UserId;
             String message = "";
             if (ModelState.IsValid) {
                 repository.SaveReport(report);

@@ -28,7 +28,7 @@ namespace NidTid.Domain.Entities
         public string Password { get; set; }
         public Nullable<decimal> Salary { get; set; }
         public Nullable<decimal> Tax { get; set; }
-        public bool IsAdmin { get; set; }
+        public string Role { get; set; }
     
         //public virtual ICollection<MeterPost> MeterPost { get; set; }
         public virtual ICollection<Project> Project { get; set; }

@@ -79,14 +79,14 @@
     });
 
     $(document.body).on("click", "#saveReport", function () {
-
+        var userId = $("#UserId").val();
         $.ajax({
             type: 'POST',
             url: "/Report/SaveReport",
             data: $('#reportForm').serialize(),
             success: function (result) {
                 clearForm();
-                showReports(null, 1, 8);
+                showReports(null, userId, 8);
             },
             error: function (result) {
                 alert("Ett fel inträffade, försök igen.");
