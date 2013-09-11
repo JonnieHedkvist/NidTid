@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<NidTid.Domain.Entities.Report>
 
         <div>
-            <table class="table table-striped" style="border-collapse:collapse;">
+            <table class="table table-striped tablesorter">
                 <thead>
                      <tr>
                     <th>
@@ -33,7 +33,7 @@
                
 
             @foreach (var item in Model) {
-                <tr data-toggle="collapse" data-target="#@item.Id" class="accordion-toggle">
+                <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
@@ -57,27 +57,8 @@
                     </td>
 
                     <td>
-                        <a class="btn btn-info btn-small"><i class="icon-edit icon-white"></i>Ändra</a> |
-                        <a class="btn btn-danger btn-small"><i class="icon-trash icon-white"></i>Ta bort</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="8" class="hiddenRow">
-                        <div class="accordian-body collapse" id="@item.Id">
-                        <table>
-                            <tr>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="icon-pencil"></i>
-                                </td>
-                                <td colspan="8">
-                                    @item.Notes
-                                </td>
-                            </tr>
-                        </table>
-                        </div>
+                        <a class="btn btn-info btn-mini"><i class="icon-edit icon-white"></i>Ändra</a> |
+                        <a class="btn btn-danger btn-mini"><i class="icon-trash icon-white"></i>Ta bort</a>
                     </td>
                 </tr>
             }

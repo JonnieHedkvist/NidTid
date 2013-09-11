@@ -1,7 +1,7 @@
 ﻿$(function () {
 
-    toggleInputs(true);
-    
+    $('.datepicker').datepicker();
+
     $("#customerAC").autocomplete({
         source: '/Customer/FilteredCustomers',
         select: function (e, ui) {
@@ -9,8 +9,6 @@
         },
         delay: 5
     });
-
-    $('.datepicker').datepicker();
 
     $("#projectList").change(function () {
         var selectedValue = $("#projectList option:selected").val();
@@ -22,7 +20,7 @@
             },
             success: function (prj) {
                 $('#projectWrapper').html(prj);
-                showReports(selectedValue,null,5);
+                showReports(selectedValue,null, null, null, 5);
             }
         });
     });
@@ -86,12 +84,20 @@
             data: $('#reportForm').serialize(),
             success: function (result) {
                 clearForm();
-                showReports(null, userId, 8);
+                showReports(null, userId, null, null, 8);
             },
             error: function (result) {
                 alert("Ett fel inträffade, försök igen.");
             }
         });
+    });
+
+    $("#filterReports").click(function () {
+        var userId = $("#userDropDown").val();
+        var projectId = $("#projectDropDown").val();
+        var fromDate = $("#fromDate").val();
+        var toDate = $("#toDate").val();
+        showReports(projectId, userId, fromDate, toDate, 50);
     });
 
 
@@ -112,35 +118,33 @@
 
 });
 
-function toggleInputs(onOff) {
-    $("#Name").prop('disabled', onOff);
-    $("#Referens").prop('disabled', onOff);
-    $("#FastBtn").prop('disabled', onOff);
-    $("#KontoStr").prop('disabled', onOff);
-    $("#Desription").prop('disabled', onOff);
-    $("#PostNr").prop('disabled', onOff);
-    $("#PostOrt").prop('disabled', onOff);
-    $("#Moms").prop('disabled', onOff);
-}
 
 function clearForm() {
     $(':input').not(':button, :submit, :reset, :hidden').val('');
 }
 
-function showReports(projectId, userId, limit) {
+function showReports(projectId, userId, fromDate, toDate, limit) {
+    var url = "/Report/List";
+    if (fromDate != null) {
+        url = "/Report/SpreadsheetResult";
+    }
     $.ajax({
         type: 'GET',
-        url: "/Report/List",
+        url: url,
         data:
             {
                 ProjectId: projectId,
                 UserId: userId,
+                fromDate: fromDate,
+                toDate: toDate,
                 Limit: limit
             },
         success: function (reports) {
             $('#reportList').html(reports);
+            $("table.tablesorter").tablesorter({ widthFixed: true, sortList: [[0, 0]] })
         }
     });
+    
 
 }
 /*

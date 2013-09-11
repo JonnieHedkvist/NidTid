@@ -9,7 +9,7 @@ using NidTid.WebUI.Models;
 using System.Web.Services;
 using System.Data.Entity;
 
-namespace NidTid.WebUI.Classes
+namespace NidTid.WebUI.Models
 {
     public class ReportQuery
     {

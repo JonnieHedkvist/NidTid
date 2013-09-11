@@ -7,7 +7,6 @@ using NidTid.Domain.Abstract;
 using NidTid.Domain.Entities;
 using NidTid.WebUI.Models;
 using System.Web.Services;
-using NidTid.WebUI.Classes;
 
 
 namespace NidTid.WebUI.Controllers
@@ -16,16 +15,18 @@ namespace NidTid.WebUI.Controllers
     {
         private IReportRepository repository;
         private ICustomerRepository customerRepo;
+        private IUserRepository userRepo;
 
-        public ReportController(IReportRepository reportRepository, ICustomerRepository customerRepository)
+        public ReportController(IReportRepository reportRepository, ICustomerRepository customerRepository, IUserRepository userRepository)
         {
             this.repository = reportRepository;
             this.customerRepo = customerRepository;
+            this.userRepo = userRepository;
         }
 
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult NewReport()
         {
             ReportViewModel report = new ReportViewModel();
@@ -35,6 +36,7 @@ namespace NidTid.WebUI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public String SaveReport(ReportViewModel reportModel)
         {
             Report report = reportModel.Report;
@@ -51,6 +53,23 @@ namespace NidTid.WebUI.Controllers
             return message;
         }
 
+        [HttpGet]
+        [Authorize]
+        public ActionResult Spreadsheet()
+        {
+            SpreadsheetViewModel spreadsheet = new SpreadsheetViewModel();
+            spreadsheet.Customers = customerRepo.Customers;
+            spreadsheet.Users = userRepo.Users;
+            return View(spreadsheet);
+        }
+
+        public ActionResult SpreadsheetResult(ReportQuery query)
+        {
+            var filteredReports = query.Filter(this.repository.Reports);
+
+            var k = filteredReports.ToList().Count;
+            return PartialView(filteredReports);
+        }
 
         public ActionResult List(ReportQuery query)
         {

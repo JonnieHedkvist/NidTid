@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Site.css")" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.2.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.tablesorter.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.10.3.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/customers.js")"></script>
     <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />

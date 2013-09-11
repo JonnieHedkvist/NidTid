@@ -1,0 +1,82 @@
+﻿@model NidTid.WebUI.Models.SpreadsheetViewModel
+
+@{
+    ViewBag.Title = "Spreadsheet";
+}
+
+<div class="container">
+    <div class="row top-row">
+        <div class="span12">
+            <form class="well" id="spreadsheetForm" action="" method="post">  
+                <fieldset>  
+                    <legend>Sammanställningar och rapporter</legend> 
+                        <div class="row-fluid">
+                            <div class="control-group span2 spreadsheetControl">  
+                                <label class="control-label" for="UserId">Antälld</label>  
+                                <div class="controls">  
+                                    <select id="userDropDown" name="UserId">
+                                        <option value="null">-- Alla --</option>
+                                            @foreach (var c in Model.Users) { 
+                                                <option value=@c.Id>@c.Name</option>
+                                            }
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="control-group span2 spreadsheetControl">  
+                                <label class="control-label" for="customerDropDown">Kund</label>  
+                                <div class="controls">  
+                                    <select id="customerDropDown" name="customerDropDown">
+                                        <option value="null">-- Alla --</option>
+                                            @foreach (var c in Model.Customers) { 
+                                                <option value=@c.Id>@c.Name</option>
+                                            }
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="control-group span2 spreadsheetControl">  
+                                <label class="control-label" for="ProjectId">Projekt</label>  
+                                <div class="controls">  
+                                    <select id="projectDropDown" name="ProjectId">
+                                        <option value="null">-- Alla --</option>
+                                    </select>
+                                </div>  
+                            </div>
+                            <div class="control-group span1 spreadsheetControl">  
+                                <label class="control-label" for="Report.Date">Fr.o.m</label>  
+                                <div class="controls">  
+                                    <input type="text" class="datepicker input-small" id="fromDate" value="@System.DateTime.Now.ToShortDateString()" /> 
+                                </div>  
+                            </div>
+                            <div class="control-group span1 spreadsheetControl">  
+                                <label class="control-label" for="Report.Date">T.o.m</label>  
+                                <div class="controls">  
+                                    <input type="text" class="datepicker input-small" id="toDate" value="@System.DateTime.Now.ToShortDateString()" /> 
+                                </div>  
+                            </div>
+                            <div class="control-group span1">  
+                                <label class="control-label">.</label>  
+                                <div class="controls">  
+                                    <input type="button" class="btn btn-success" id="filterReports" value="Hämta rapporter"/> 
+                                </div>  
+                            </div>
+                            
+                        </div> 
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <fieldset>
+                    <legend>Filtrerade tidrapporter</legend>
+                    <div id="reportList">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
