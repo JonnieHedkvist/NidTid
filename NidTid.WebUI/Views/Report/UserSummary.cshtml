@@ -1,0 +1,31 @@
+﻿@model NidTid.WebUI.Models.ReportSummaryViewModel
+
+
+<div class="container-fluid span11">
+    <div class="span5">
+        <div class="row-fluid">
+            <fieldset>
+            <legend>Rapporterad tid</legend>
+            Idag:
+                <div class="progress progress-success">
+                    <div class="bar"  
+                        style="width: 60%;">
+                        @Model.TimeToday
+                        timmar
+                    </div>  
+                </div>
+                Denna månad:
+                <div class="progress progress-info">
+                    <div class="bar"  
+                        style="width: 30%;">
+                        @Model.TimeMonth
+                        timmar
+                    </div>  
+                </div>
+            </fieldset>
+            </div>
+        </div>
+        <div class="span5">
+            <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;mode=WEEK&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=jonnie.hedkvist%40gmail.com&amp;color=%232F6309&amp;ctz=Europe%2FStockholm" style=" border-width:0 " width="600" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>

@@ -7,6 +7,7 @@ using NidTid.Domain.Abstract;
 using NidTid.Domain.Entities;
 using NidTid.WebUI.Models;
 using System.Web.Services;
+using NidTid.WebUI.Security;
 
 
 namespace NidTid.WebUI.Controllers
@@ -40,7 +41,7 @@ namespace NidTid.WebUI.Controllers
         public String SaveReport(ReportViewModel reportModel)
         {
             Report report = reportModel.Report;
-            var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.User).CustomIdentity;
+            var identity = ((CustomPrincipal)HttpContext.User).CustomIdentity;
             report.UserId = identity.UserId;
             String message = "";
             if (ModelState.IsValid) {
@@ -79,8 +80,15 @@ namespace NidTid.WebUI.Controllers
             return PartialView(filteredReports);
         }
 
+        public ActionResult UserSummary()
+        {
+            var identity = ((CustomPrincipal)HttpContext.User).CustomIdentity;
+            ReportSummaryViewModel reportSummary = new ReportSummaryViewModel(this.repository.Reports, identity.UserId);
+            return PartialView(reportSummary);
+        }
 
 
+        
     }
 }
 

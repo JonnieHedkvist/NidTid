@@ -20,7 +20,7 @@
     <div class="navbar navbar-fixed-top">  
         <div class="navbar-inner" id="header">  
             <div class="container-fluid">
-                <a class="brand" href="#"><img src="~/Content/Icons/NidLogo.png" alt="DinTid" height="62" width="236"></a>  
+                <a class="brand" href="@Url.Action("Index", "Home")"><img src="~/Content/Icons/NidLogo.png" alt="DinTid" height="62" width="236"></a>  
                 <p class="navbar-text pull-right">
                     @if (HttpContext.Current.User.Identity.IsAuthenticated)
                         {

@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -141,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Models\ReportSummaryViewModel.cs" />
     <Compile Include="Models\SpreadsheetViewModel.cs" />
     <Compile Include="Models\CustomersListViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -297,6 +299,8 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Report\Spreadsheet.cshtml" />
     <Content Include="Views\Report\SpreadsheetResult.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Report\UserSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
