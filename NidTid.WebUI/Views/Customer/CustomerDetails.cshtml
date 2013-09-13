@@ -4,38 +4,56 @@
     ViewBag.Title = "Kunder";
 }
 
-<div class="container">
-    <div class="row-fluid top-row">
-        <div class="span3">
+<div class="row-fluid">
+    <div class="span12">
+        <p>
             Sök kund:<input type="text" class="input-medium search-query" name="customerAC" id="customerAC" />
-        </div>
-        <div class="span9">
-            <select id="projectList" name="projectList">
-                <option value="null">-- Välj Projekt --</option>
-                @if (Model.Project != null) {
-                    foreach (var p in Model.Project) { 
-                        <option value=@p.Id>@p.Name</option>
-                    }
-                }
-            </select>
-        </div>
+        </p>
+        </br> 
     </div>
-    <div class="row top-row">
-        <div class="span3 well">
-            @{
-                Html.RenderPartial("_CustomerPartial");
-            }
-        </div>
-        <div class="span9" id="projectWrapper">
-            @{
-                Html.RenderAction("ProjectDetails", "Project");
-            }
-            
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="nav nav-tabs" id="customerTabs">
+            <li class="tab-link active"><a href="#customerTab" data-toggle="tab">Kunduppgifter</a></li>   
+            <li class="tab-link"><a href="#projectsTab" data-toggle="tab">Projekt</a></li>  
+            <li class="tab-link"><a href="#billsTab" data-toggle="tab">Fakturor</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="container tab-content">
+            <div class="tab-pane" id="customerTab">
+                @{
+                    Html.RenderPartial("_CustomerPartial");
+                }
+            </div>
+            <div class="tab-pane" id="projectsTab">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <select id="projectList" name="projectList">
+                            <option value="null">-- Välj Projekt --</option>
+                            @if (Model.Project != null) {
+                                foreach (var p in Model.Project) { 
+                                    <option value=@p.Id>@p.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12" id="projectWrapper">
+                        @{
+                            Html.RenderAction("ProjectDetails", "Project");
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="billsTab">
+                <p>Inga fakturor registrerade</p>
+                <a class="btn btn-locked btn-info" id="createBillBtn"><i class="icon-file icon-white"></i>Skapa Faktura</a>
+            </div>
         </div>
     </div>
 </div>
-
-            
-
-
-

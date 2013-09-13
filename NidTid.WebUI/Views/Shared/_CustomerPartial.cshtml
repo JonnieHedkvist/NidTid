@@ -1,18 +1,21 @@
 ﻿@model NidTid.Domain.Entities.Customer 
 
-<h3>@Model.Name</h3>
-<div id="customerInfo">
-    
-    @Html.EditorFor(model => Model.Id)
-    @Model.OrgNr <br />
-    @Model.Adress <br />
-    @Model.PostNr
-    @Model.PostOrt <br />
-    @Model.Phone1 <br />
-    @Model.Email <br />
-    <br />
-</div>
-<a class="btn btn-locked btn-info" id="btnEditCustomer"><i class="icon-user icon-white"></i>Redigera kunduppgifter</a>
+
+<fieldset>
+    <legend>@Model.Name</legend>
+    <div id="customerInfo">
+        @Html.EditorFor(model => Model.Id)
+        @Model.OrgNr <br />
+        @Model.Adress <br />
+        @Model.PostNr
+        @Model.PostOrt <br />
+        @Model.Phone1 <br />
+        @Model.Email <br />
+        <br />
+    </div>
+    <a class="btn btn-locked btn-info" id="btnEditCustomer"><i class="icon-user icon-white"></i>Redigera kunduppgifter</a>
+</fieldset>
+
 
 
 
