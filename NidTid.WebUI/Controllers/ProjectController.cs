@@ -24,9 +24,12 @@ namespace NidTid.WebUI.Controllers
             ProjectViewModel project = new ProjectViewModel();
             if(projectId != null){
                 selectedProject = repository.Projects.FirstOrDefault(p => p.Id == projectId);
-                decimal debTime = (from r in selectedProject.Report
+                project.DebHours = (from r in selectedProject.Report
                                 select r.Deb).Sum() ?? 0;
-                project.TotalHours = debTime;
+                project.EjDebHours = (from r in selectedProject.Report
+                                    select r.EjDeb).Sum() ?? 0;
+                project.TotalHours = project.EjDebHours + project.DebHours;
+                
             }
             
             project.Project = selectedProject;

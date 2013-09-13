@@ -1,4 +1,7 @@
 ﻿$(function () {
+    var activeProject;
+
+    $('#customerTabs a:first').tab('show');
 
     $('.datepicker').datepicker();
 
@@ -6,13 +9,13 @@
         source: '/Customer/FilteredCustomers',
         select: function (e, ui) {
             document.location.href = "/Customer/CustomerDetails/" + ui.item.value;
-            $('#customerTabs a:first').tab('show');
+            
         },
         delay: 5
     });
 
-    $("#projectList").change(function () {
-        var selectedValue = $("#projectList option:selected").val();
+    $("#projectList li").click(function () {
+        var selectedValue = $(this).attr("data-id");
         $.ajax({
             type: 'GET',
             url: "/Project/ProjectDetails",
@@ -21,7 +24,8 @@
             },
             success: function (prj) {
                 $('#projectWrapper').html(prj);
-                showReports(selectedValue,null, null, null, 5);
+                activeProject = selectedValue;
+                showReports(selectedValue,null, null, null, 10);
             }
         });
     });
@@ -44,6 +48,11 @@
                 }
             }
         });
+    });
+
+    $(document.body).on("change", "#nrOfReportsDropDown", function () {
+        var value = $(this).val();
+        showReports(activeProject, null, null, null, value);
     });
 
 

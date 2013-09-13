@@ -10,6 +10,7 @@ namespace NidTid.WebUI.Models
     {
         public Project Project { get; set; }
         public decimal TotalHours { get; set; }
+        public decimal DebHours { get; set; }
         public decimal EjDebHours { get; set; }
         public decimal TotalKm { get; set; }
     }

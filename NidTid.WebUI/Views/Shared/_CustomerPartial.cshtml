@@ -1,20 +1,26 @@
 ﻿@model NidTid.Domain.Entities.Customer 
 
+ 
+<div class="span3">
+    <a href="#customerTab"><img src="~/Content/Icons/users.png" width="30" height="30">Ny kund...</a>
+    @if (Model.Name != null) {
+    <fieldset>
+        <legend>@Model.Name</legend>
+        <div id="customerInfo">
+            @Html.EditorFor(model => Model.Id)
+            @Model.OrgNr <br />
+            @Model.Adress <br />
+            @Model.PostNr
+            @Model.PostOrt <br />
+            @Model.Phone1 <br />
+            @Model.Email <br />
+            <br />
+        </div>
+        <a class="btn btn-locked btn-info" id="btnEditCustomer"><i class="icon-user icon-white"></i>Redigera kunduppgifter</a>
+    </fieldset>
+    }
+</div>
 
-<fieldset>
-    <legend>@Model.Name</legend>
-    <div id="customerInfo">
-        @Html.EditorFor(model => Model.Id)
-        @Model.OrgNr <br />
-        @Model.Adress <br />
-        @Model.PostNr
-        @Model.PostOrt <br />
-        @Model.Phone1 <br />
-        @Model.Email <br />
-        <br />
-    </div>
-    <a class="btn btn-locked btn-info" id="btnEditCustomer"><i class="icon-user icon-white"></i>Redigera kunduppgifter</a>
-</fieldset>
 
 
 

@@ -5,18 +5,38 @@
 }
 
 <div class="row-fluid">
-    <div class="span12">
+    <div class="span6">
         <p>
             Sök kund:<input type="text" class="input-medium search-query" name="customerAC" id="customerAC" />
         </p>
-        </br> 
+    </div>
+    <div class="span6">
+        
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3><img src="~/Content/Icons/customers.png" width="90" height="90">Kund- och projektdatabas</h3>
     </div>
 </div>
 <div class="row-fluid">
     <div class="span12">
         <ul class="nav nav-tabs" id="customerTabs">
-            <li class="tab-link active"><a href="#customerTab" data-toggle="tab">Kunduppgifter</a></li>   
-            <li class="tab-link"><a href="#projectsTab" data-toggle="tab">Projekt</a></li>  
+            <li class="tab-link"><a href="#customerTab" data-toggle="tab">Kunduppgifter</a></li>
+            <li class="dropdown">  
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projekt</a>
+                <ul id="projectList" class="dropdown-menu">
+                    @if (Model.Name != null) {
+                        <li class="tab-link"><a href="#"><img src="~/Content/Icons/folder.png" width="22" height="22">Nytt projekt</a></li>
+                        <li class="divider"></li>
+                    }
+                    @if (Model.Project != null) {
+                        foreach (var p in Model.Project) {
+                            <li data-id="@p.Id" class="tab-link"><a href="#projectsTab" data-toggle="tab">@p.Name</a></li>
+                        }
+                    }
+                </ul>  
+            </li>
             <li class="tab-link"><a href="#billsTab" data-toggle="tab">Fakturor</a></li>
         </ul>
     </div>
@@ -30,18 +50,6 @@
                 }
             </div>
             <div class="tab-pane" id="projectsTab">
-                <div class="row-fluid">
-                    <div class="span12">
-                        <select id="projectList" name="projectList">
-                            <option value="null">-- Välj Projekt --</option>
-                            @if (Model.Project != null) {
-                                foreach (var p in Model.Project) { 
-                                    <option value=@p.Id>@p.Name</option>
-                                }
-                            }
-                        </select>
-                    </div>
-                </div>
                 <div class="row-fluid">
                     <div class="span12" id="projectWrapper">
                         @{
