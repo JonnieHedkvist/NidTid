@@ -4,6 +4,9 @@
     background: #dff2b0;
     border-bottom: 1px solid black;
 }
+html {
+    overflow-y:scroll;
+}
 
 
 /*--------------------------------Form styles-----------------------------*/

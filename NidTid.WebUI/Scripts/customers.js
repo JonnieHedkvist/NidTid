@@ -25,7 +25,7 @@
             success: function (prj) {
                 $('#projectWrapper').html(prj);
                 activeProject = selectedValue;
-                showReports(selectedValue,null, null, null, 10);
+                showReports(selectedValue,null, null, null, 10, "List");
             }
         });
     });
@@ -52,7 +52,7 @@
 
     $(document.body).on("change", "#nrOfReportsDropDown", function () {
         var value = $(this).val();
-        showReports(activeProject, null, null, null, value);
+        showReports(activeProject, null, null, null, value, "List");
     });
 
 
@@ -94,7 +94,7 @@
             data: $('#reportForm').serialize(),
             success: function (result) {
                 clearForm();
-                showReports(null, userId, null, null, 8);
+                showReports(null, userId, null, null, 8, "List");
             },
             error: function (result) {
                 alert("Ett fel inträffade, försök igen.");
@@ -107,7 +107,7 @@
         var projectId = $("#projectDropDown").val();
         var fromDate = $("#fromDate").val();
         var toDate = $("#toDate").val();
-        showReports(projectId, userId, fromDate, toDate, 50);
+        showReports(projectId, userId, fromDate, toDate, 50, "SpreadsheetResult");
     });
 
 
@@ -133,14 +133,10 @@ function clearForm() {
     $(':input').not(':button, :submit, :reset, :hidden').val('');
 }
 
-function showReports(projectId, userId, fromDate, toDate, limit) {
-    var url = "/Report/List";
-    if (fromDate != null) {
-        url = "/Report/SpreadsheetResult";
-    }
+function showReports(projectId, userId, fromDate, toDate, limit, url) {
     $.ajax({
         type: 'GET',
-        url: url,
+        url: "/Report/" + url,
         data:
             {
                 ProjectId: projectId,
