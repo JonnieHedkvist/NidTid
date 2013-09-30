@@ -7,23 +7,64 @@
                 <legend>@Model.Project.Customer.Name - @Model.Project.Name</legend>
                 <div class="row-fluid">
                     @Html.EditorFor(model => Model.Project.Id)
-                    Projektansvarig: @Model.Project.User.Name <br />
-                    Kundens referens: @Model.Project.Referens <br />
-                    Fastighetsbtn: @Model.Project.FastBtn <br />
-                    Kontosträng: @Model.Project.KontoStr <br />
+                    <b>Projektansvarig: </b> @Model.Project.User.Name <br />
+                    <b>Kundens referens: </b> @Model.Project.Referens <br />
+                    <b>Fastighetsbtn: </b> @Model.Project.FastBtn <br />
+                    <b>Kontosträng: </b> @Model.Project.KontoStr <br />
                     <br />
                 </div>
-                <div class="row-fluid">
+                <div class="row-fluid" id="projectActiveDiv">
                     @Html.EditorFor(model => model.Project.Active) Aktivt
                     <br />
                     <p>(Projektet måste vara aktivt för att kunna rapportera tid)</p>
                 </div>
                 <div class="row-fluid">
-                    <a class="btn btn-locked btn-info" id="btnEditProject"><i class="icon-edit icon-white"></i>Redigera projekt</a>
+                    <a class="btn btn-locked btn-info accordion-toggle" id="btnEditProject" data-toggle="collapse" data-target="#editProjectDiv"><i class="icon-edit icon-white"></i>Redigera projekt</a>
                 </div>
             </fieldset>
         </div>
-        <div class="span9">
+       
+   <!-- Project accordion -->
+        <div id="projectDiv" class="span9">
+            <div class="row-fluid collapse" id="editProjectDiv">
+                <div class="span12 well">
+                    <fieldset>
+                        <legend>Redigera projekt</legend>
+                        <form id="projectForm" action="" method="post">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    @Html.LabelFor(model => model.Project.Name)
+                                    @Html.EditorFor(model => model.Project.Name)
+                                    <select id="userDropDown" name="Project.UserId">
+                                        <option value="@Model.Project.UserId">@Model.Project.User.Name</option>
+                                            @foreach (var u in Model.Users) { 
+                                                <option value=@u.Id>@u.Name</option>
+                                            }
+                                    </select>
+                                    @Html.LabelFor(model => model.Project.Description)
+                                    @Html.EditorFor(model => model.Project.Description)
+                                    @Html.LabelFor(model => model.Project.Active)
+                                    @Html.EditorFor(model => model.Project.Active)
+                                </div>
+                                <div class="span6">
+                                    @Html.LabelFor(model => model.Project.Referens)
+                                    @Html.EditorFor(model => model.Project.Referens)
+                                    @Html.LabelFor(model => model.Project.KontoStr)
+                                    @Html.EditorFor(model => model.Project.KontoStr)
+                                    @Html.LabelFor(model => model.Project.FastBtn)
+                                    @Html.EditorFor(model => model.Project.FastBtn)
+                                    <div id="prjSaveBtn">
+                                        <a href="#" class="btn btn-success btn-info" id="saveProject"><i class="icon-edit icon-white"></i>Spara ändringar</a>
+                                    </div>
+                                    @Html.EditorFor(model => model.Project.CustomerId)
+                                    @Html.EditorFor(model => model.Project.Id)
+                               </div>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+       
             <div class="row-fluid">
                 <div class="well span12">
                     <div class="row-fluid">
@@ -36,8 +77,8 @@
                         <div class="span4">
                             <h4>Total tid: @Model.TotalHours h</h4>
                             <p>
-                                Debiterbart: @Model.DebHours
-                                Ej debiterbart:@Model.EjDebHours
+                                Debiterbart: <b>@Model.DebHours</b>
+                                Ej debiterbart: <b>@Model.EjDebHours</b>
                             </p>
                         </div>  
                     </div>
@@ -58,10 +99,7 @@
                 </fieldset>
             </div>
         </div>
+
     }
 
 </div>
-
-
-
-            

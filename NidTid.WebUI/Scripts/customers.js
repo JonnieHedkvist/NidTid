@@ -3,18 +3,40 @@
 
     $('#customerTabs a:first').tab('show');
 
+    $(document.body).on("change", "#projectActiveDiv .check-box", function () {
+        var active = $(this).prop('checked');
+        $.ajax({
+            type: 'POST',
+            url: "/Project/ToggleActive",
+            data: {
+                active : active,
+                projectId : activeProject
+            },
+            success: function (msg) {
+                
+            }
+        });
+    });
+
     $('.datepicker').datepicker();
 
     $("#customerAC").autocomplete({
         source: '/Customer/FilteredCustomers',
         select: function (e, ui) {
             document.location.href = "/Customer/CustomerDetails/" + ui.item.value;
-            
         },
         delay: 5
     });
 
-    $("#projectList li").click(function () {
+    $("#userAC").autocomplete({
+        source: '/User/FilteredUsers',
+        select: function (e, ui) {
+            document.location.href = "/User/Index/" + ui.item.value;
+        },
+        delay: 5
+    });
+
+    $(".project-link").click(function () {
         var selectedValue = $(this).attr("data-id");
         $.ajax({
             type: 'GET',
@@ -56,9 +78,8 @@
     });
 
 
-    $("#newProjectBtn").click(function () {
-        var customerId = $("#Id").val();
-        alert(customerId);
+    $(document.body).on("click", "#newProject", function () {
+        var customerId = $(this).attr("data-customerId");
         $.ajax({
             type: 'GET',
             url: "/Project/NewProject",
@@ -71,8 +92,50 @@
         });
     });
 
-    $(document.body).on("click", "#saveProject",function () {
-        
+    $(document.body).on("click", "#saveCustomer",function () {
+        $.ajax({
+            type: 'POST',
+            url: "/Customer/CustomerDetails",
+            data: $('#customerForm').serialize(),
+            success: function (result) {
+                $('#customerWrapper').html(result);
+            },
+            error: function (result) {
+                alert("Ett fel inträffade och kunduppgifterna kunde inte sparas. Försök igen.");
+            }
+        });
+    });
+
+    $(document.body).on("click", "#saveUser", function () {
+        $.ajax({
+            type: 'POST',
+            url: "/User/SaveUser",
+            data: $('#userForm').serialize(),
+            success: function (result) {
+                $('#userWrapper').html(result);
+            },
+            error: function (result) {
+                alert("Ett fel inträffade och uppgifterna kunde inte sparas. Försök igen.");
+            }
+        });
+    });
+
+    $(document.body).on("click", "#saveMeterPost", function () {
+        $.ajax({
+            type: 'POST',
+            url: "/MeterPost/SaveMeterPost",
+            data: $('#meterpostForm').serialize(),
+            success: function (result) {
+                updateVehicles();
+                clearForm();
+            },
+            error: function (result) {
+                alert("Ett fel inträffade och uppgifterna kunde inte sparas. Försök igen.");
+            }
+        });
+    });
+
+    $(document.body).on("click", "#saveProject", function () {
         $.ajax({
             type: 'POST',
             url: "/Project/ProjectDetails",
@@ -85,6 +148,7 @@
             }
         });
     });
+
 
     $(document.body).on("click", "#saveReport", function () {
         var userId = $("#UserId").val();
@@ -111,19 +175,6 @@
     });
 
 
-    var editable = false;
-    $("#btnUnlock").click(function () {
-        if (editable == false) {
-            toggleInputs(false);
-            this.value = "Spara";
-            editable = true;
-        }
-        else {
-            this.setAttribute('type', 'submit');
-            editable = false;
-        }
-        
-    });
 
 
 });
@@ -131,6 +182,19 @@
 
 function clearForm() {
     $(':input').not(':button, :submit, :reset, :hidden').val('');
+}
+
+function updateVehicles() {
+    $.ajax({
+        type: 'GET',
+        url: "/Vehicle/List",
+        data:
+            {
+            },
+        success: function (vehicles) {
+            $('#vehicleDiv').html(vehicles);
+        }
+    });
 }
 
 function showReports(projectId, userId, fromDate, toDate, limit, url) {
@@ -150,7 +214,9 @@ function showReports(projectId, userId, fromDate, toDate, limit, url) {
             $("table.tablesorter").tablesorter({ widthFixed: true, sortList: [[0, 0]] })
         }
     });
-    
+
+
+
 
 }
 /*

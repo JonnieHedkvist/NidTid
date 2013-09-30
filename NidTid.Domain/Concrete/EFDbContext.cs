@@ -8,5 +8,7 @@ namespace NidTid.Domain.Concrete
         public DbSet<Project> Projects { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<MeterPost> MeterPosts { get; set; }
     }
 }

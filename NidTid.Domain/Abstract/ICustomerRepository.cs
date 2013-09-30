@@ -6,6 +6,6 @@ namespace NidTid.Domain.Abstract {
         
         IQueryable<Customer> Customers { get; }
 
-        void SaveCustomer(Customer customer);
+        int SaveCustomer(Customer customer);
     }   
 }

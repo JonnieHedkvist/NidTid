@@ -9,6 +9,7 @@ namespace NidTid.WebUI.Models
     public class ProjectViewModel
     {
         public Project Project { get; set; }
+        public IEnumerable<User> Users { get; set; }
         public decimal TotalHours { get; set; }
         public decimal DebHours { get; set; }
         public decimal EjDebHours { get; set; }

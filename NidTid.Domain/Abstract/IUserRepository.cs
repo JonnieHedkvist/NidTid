@@ -8,6 +8,6 @@ namespace NidTid.Domain.Abstract
 
         IQueryable<User> Users { get; }
 
-        void SaveUser(User user);
+        int SaveUser(User user);
     }
 }

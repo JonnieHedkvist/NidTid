@@ -1,0 +1,53 @@
+﻿@model NidTid.WebUI.Models.MeterPostViewModel
+@{
+    var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.Current.User).CustomIdentity;
+}
+<div class="well container-fluid">
+        <form id="meterpostForm" action="" method="post">  
+            <fieldset>  
+                <legend>Registrera post i körjournal</legend>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <select id="vehicleDropDown" name="MeterPost.VehicleId">
+                            <option value="null">-- Fordon --</option>
+                                @foreach (var v in Model.Vehicles) { 
+                                    <option value=@v.Id>@v.RegNr</option>
+                                }
+                        </select>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="control-group">  
+                            <label class="control-label" for="MeterPost.Date">Datum</label>  
+                            <div class="controls">  
+                                <input type="text" class="datepicker input-small" name="MeterPost.Date" value="@System.DateTime.Now.ToShortDateString()" /> 
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                       <div class="control-group">  
+                            <label class="control-label" for="MeterPost.CurrentMeter">Mätarställning</label>  
+                            <div class="controls">  
+                                <input type="text" name="MeterPost.CurrentMeter" id="currentMeterInput"/> 
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <label class="control-label" for="MeterPost.Notes">Notering</label>  
+                        <div class="controls">  
+                            <textarea class="input-large" name="MeterPost.Notes" id="textarea" rows="2"></textarea> 
+                        </div>  
+                    </div>
+                </div>
+                <input type="button" class="btn btn-success" id="saveMeterPost" value="Spara post"/>
+                
+            </fieldset>
+                <input type="hidden" id="UserId" name="MeterPost.UserId" value="@identity.UserId" />
+                @Html.EditorFor(model => model.MeterPost.Id)
+        </form>
+    </div>

@@ -36,18 +36,18 @@ namespace NidTid.WebUI.Controllers {
 
         [HttpPost]
         public ActionResult CustomerDetails(Customer currentCustomer) {
+            var currentId = 0;
             if (ModelState.IsValid) {
-                repository.SaveCustomer(currentCustomer);
+                currentId = repository.SaveCustomer(currentCustomer);
                 TempData["message"] = "Kunduppgifterna har uppdaterats!";
             }
             else { 
                 //FIXA FELMEDDELANDE
             }
-            return RedirectToAction(actionName: "CustomerDetails", routeValues: new { id = currentCustomer.Id });;
+            return RedirectToAction(actionName: "CustomerDetails", routeValues: new { id = currentId });
         }
 
         public ViewResult Create() {
-            
             return View("CustomerDetails", new Customer());
         }
         

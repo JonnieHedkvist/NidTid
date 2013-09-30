@@ -2,7 +2,7 @@
 
  
 <div class="span3">
-    <a href="#customerTab"><img src="~/Content/Icons/users.png" width="30" height="30">Ny kund...</a>
+    <a class="accordion-toggle" data-toggle="collapse" data-target="#editCustomerDiv" id="newCustomer" href="#customerTab"><img src="~/Content/Icons/users.png" width="30" height="30">Ny kund...</a>
     @if (Model.Name != null) {
     <fieldset>
         <legend>@Model.Name</legend>
@@ -16,9 +16,49 @@
             @Model.Email <br />
             <br />
         </div>
-        <a class="btn btn-locked btn-info" id="btnEditCustomer"><i class="icon-user icon-white"></i>Redigera kunduppgifter</a>
+        <a class="btn btn-locked btn-info accordion-toggle" id="btnEditCustomer" data-toggle="collapse" data-target="#editCustomerDiv"><i class="icon-user icon-white"></i>Redigera kunduppgifter</a>
     </fieldset>
     }
+</div>
+<div class="span9">
+    <div class="row-fluid collapse" id="editCustomerDiv">
+        <div class="span12 well">
+            <fieldset>
+                <legend>Kunduppgifter</legend>
+                <form id="customerForm" action="" method="post">
+                    <div class="row-fluid">
+                        <div class="span4">
+                            @Html.LabelFor(model => model.Name)
+                            @Html.EditorFor(model => model.Name)
+                            @Html.LabelFor(model => model.OrgNr)
+                            @Html.EditorFor(model => model.OrgNr)
+                            @Html.LabelFor(model => model.Adress)
+                            @Html.EditorFor(model => model.Adress)
+                            @Html.LabelFor(model => model.PostNr)
+                            @Html.EditorFor(model => model.PostNr)
+                            @Html.LabelFor(model => model.PostOrt)
+                            @Html.EditorFor(model => model.PostOrt)
+                        </div>
+                        <div class="span4">
+                            @Html.LabelFor(model => model.Phone1)
+                            @Html.EditorFor(model => model.Phone1)
+                            @Html.LabelFor(model => model.Phone2)
+                            @Html.EditorFor(model => model.Phone2)
+                            @Html.LabelFor(model => model.Email)
+                            @Html.EditorFor(model => model.Email)
+                            @Html.LabelFor(model => model.Moms)
+                            @Html.EditorFor(model => model.Moms)
+                            @Html.EditorFor(model => model.Id)
+                            <div class="row-fluid">
+                                <br/>
+                                <a class="btn btn-locked btn-success" id="saveCustomer"><i class="icon-ok icon-white"></i>Spara</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
 </div>
 
 

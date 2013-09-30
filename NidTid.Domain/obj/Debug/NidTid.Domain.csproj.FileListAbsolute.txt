@@ -18,3 +18,26 @@ C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\D
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateReprot.resources
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.uiyertUSER.resources
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateUserRole.resources
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\NidTid.Domain.dll.config
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\NidTid.Domain.dll
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\NidTid.Domain.pdb
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\EntityFramework.dll
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\EntityFramework.xml
+C:\Utveckling\DinTid\NidTid.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.csprojResolveAssemblyReference.cache
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Initial.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Initial2.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Reports.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.updateProjects.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Report22.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateReprot.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.userUpdate.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.uiyertUSER.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.UpdateUserRole.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.csproj.GenerateResource.Cache
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.dll
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.pdb
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Vehicle.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Vehicle22.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.MeterPost.resources

@@ -49,18 +49,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICustomerRepository.cs" />
+    <Compile Include="Abstract\IMeterPostRepository.cs" />
     <Compile Include="Abstract\IProjectRepository.cs" />
     <Compile Include="Abstract\IReportRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
+    <Compile Include="Abstract\IVehicleRepository.cs" />
     <Compile Include="Concrete\EFCustomerRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFMeterPostRepository.cs" />
     <Compile Include="Concrete\EFProjectRepository.cs" />
     <Compile Include="Concrete\EFReportRepository.cs" />
     <Compile Include="Concrete\EFUserRepository.cs" />
+    <Compile Include="Concrete\EFVehicleRepository.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\MeterPost.cs" />
     <Compile Include="Entities\Project.cs" />
     <Compile Include="Entities\Report.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Migrations\201308151253290_Initial.cs" />
     <Compile Include="Migrations\201308151253290_Initial.Designer.cs">
       <DependentUpon>201308151253290_Initial.cs</DependentUpon>
@@ -97,6 +103,18 @@
     <Compile Include="Migrations\201309091254368_UpdateUserRole.Designer.cs">
       <DependentUpon>201309091254368_UpdateUserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309291857258_Vehicle.cs" />
+    <Compile Include="Migrations\201309291857258_Vehicle.Designer.cs">
+      <DependentUpon>201309291857258_Vehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309291901321_Vehicle22.cs" />
+    <Compile Include="Migrations\201309291901321_Vehicle22.Designer.cs">
+      <DependentUpon>201309291901321_Vehicle22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309301405554_MeterPost.cs" />
+    <Compile Include="Migrations\201309301405554_MeterPost.Designer.cs">
+      <DependentUpon>201309301405554_MeterPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -131,6 +149,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309091254368_UpdateUserRole.resx">
       <DependentUpon>201309091254368_UpdateUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309291857258_Vehicle.resx">
+      <DependentUpon>201309291857258_Vehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309291901321_Vehicle22.resx">
+      <DependentUpon>201309291901321_Vehicle22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309301405554_MeterPost.resx">
+      <DependentUpon>201309301405554_MeterPost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

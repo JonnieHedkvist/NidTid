@@ -32,6 +32,8 @@ namespace NidTid.WebUI.Infrastructure
             ninjectKernel.Bind<IProjectRepository>().To<EFProjectRepository>();
             ninjectKernel.Bind<IUserRepository>().To<EFUserRepository>();
             ninjectKernel.Bind<IReportRepository>().To<EFReportRepository>();
+            ninjectKernel.Bind<IVehicleRepository>().To<EFVehicleRepository>();
+            ninjectKernel.Bind<IMeterPostRepository>().To<EFMeterPostRepository>();
         }
     }
 }

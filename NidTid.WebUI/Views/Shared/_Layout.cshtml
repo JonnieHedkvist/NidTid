@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/redmond/jquery-ui-1.10.3.custom.css")">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -37,35 +37,38 @@
                     </div>
                     <div class="row-fluid">
                         <div class="span12">
-                            <ul class="nav pull-right">
-                                <li><a href="@Url.Action("NewReport", "Report")"><img src="~/Content/Icons/time.png" width="38" height="38">Timrapport</a></li>
-                                <li class="divider-vertical"></li>
-                                <li><a href="@Url.Action("CustomerDetails", "Customer")"><img src="~/Content/Icons/users.png" width="38" height="38">Kunder</a><li>
-                                <li class="divider-vertical"></li>
-                                <li><a href="@Url.Action("Spreadsheet", "Report")"><img src="~/Content/Icons/spreadsheet.png" width="38" height="38">Sammanställningar</a></li>
-                                <li class="divider-vertical"></li>
-                                <li class="dropdown">  
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/Icons/folder.png" width="38" height="38">Mer<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><img src="~/Content/Icons/prof2.png" width="30" height="30">Anställda</a></li>
-                                        <li class="divider"></li> 
-                                        <li><a href="#"><img src="~/Content/Icons/vehicle.png" width="30" height="30">Fordon</a><li>
-                                        <li class="divider"></li>
-                                        <li><a href="#"><img src="~/Content/Icons/salary.png" width="30" height="30">Löner</a><li> 
-                                    </ul>  
-                                </li>
-                            </ul> 
+                            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                <ul class="nav pull-right">
+                                    <li><a href="@Url.Action("NewReport", "Report")"><img src="~/Content/Icons/time.png" width="38" height="38">Timrapport</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <li><a href="@Url.Action("CustomerDetails", "Customer")"><img src="~/Content/Icons/users.png" width="38" height="38">Kunder</a><li>
+                                    <li class="divider-vertical"></li>
+                                    <li><a href="@Url.Action("Spreadsheet", "Report")"><img src="~/Content/Icons/spreadsheet.png" width="38" height="38">Sammanställningar</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <li class="dropdown">  
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/Icons/folder.png" width="38" height="38">Mer<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "User")"><img src="~/Content/Icons/prof2.png" width="30" height="30">Personal</a></li>
+                                            <li class="divider"></li> 
+                                            <li><a href="@Url.Action("Index", "Vehicle")"><img src="~/Content/Icons/vehicle.png" width="30" height="30">Körjournal</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#"><img src="~/Content/Icons/salary.png" width="30" height="30">Löner</a><li> 
+                                        </ul>  
+                                    </li>
+                                </ul>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 
  
 
 
-    <div class="container">
+    <div id="mainContent" class="container">
             @RenderBody()
     </div>
 

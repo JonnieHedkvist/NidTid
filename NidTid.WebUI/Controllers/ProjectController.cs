@@ -13,44 +13,53 @@ namespace NidTid.WebUI.Controllers
 {
     public class ProjectController : Controller {
         private IProjectRepository repository;
+        private IUserRepository userRepository;
 
-        public ProjectController(IProjectRepository projectRepository) {
+        public ProjectController(IProjectRepository projectRepository, IUserRepository userRepo) {
             this.repository = projectRepository;
+            this.userRepository = userRepo;
         }
 
         [HttpGet]
         public ActionResult ProjectDetails(int? projectId) {
             Project selectedProject = new Project();
-            ProjectViewModel project = new ProjectViewModel();
+            ProjectViewModel projectModel = new ProjectViewModel();
+            projectModel.Users = userRepository.Users;
             if(projectId != null){
                 selectedProject = repository.Projects.FirstOrDefault(p => p.Id == projectId);
-                project.DebHours = (from r in selectedProject.Report
+                projectModel.DebHours = (from r in selectedProject.Report
                                 select r.Deb).Sum() ?? 0;
-                project.EjDebHours = (from r in selectedProject.Report
+                projectModel.EjDebHours = (from r in selectedProject.Report
                                     select r.EjDeb).Sum() ?? 0;
-                project.TotalHours = project.EjDebHours + project.DebHours;
+                projectModel.TotalHours = projectModel.EjDebHours + projectModel.DebHours;
                 
             }
-            
-            project.Project = selectedProject;
-            
-            
-            return PartialView(project);
+            projectModel.Project = selectedProject;
+            return PartialView(projectModel);
         }
 
         [HttpPost]
-        public String ProjectDetails(Project currentProject)
+        public String ProjectDetails(ProjectViewModel currentProjectModel)
         {
-            String message ="";
+            String message = "";
             if (ModelState.IsValid)
             {
-                repository.SaveProject(currentProject);
-                message = "Projektet har uppdaterats!";
+                repository.SaveProject(currentProjectModel.Project);
+                message = "Projektet har skapats";
             }
             else
             {
-                //FIXA FELMEDDELANDE
+                message = "Ett fel uppstod och projektet kunde inte sparas, försök igen.";
             }
+            return message;
+        }
+
+        [HttpPost]
+        public String ToggleActive(Boolean active, int projectId)
+        {
+            String message = "";
+            repository.ToggleActive(active, projectId);
+            
             return message;
         }
 
@@ -58,7 +67,11 @@ namespace NidTid.WebUI.Controllers
             Project newProject = new Project();
             newProject.CustomerId = customerId;
             newProject.Name = "Nytt Projekt";
-            return PartialView(newProject);
+            
+            ProjectViewModel newProjectModel = new ProjectViewModel();
+            newProjectModel.Users = userRepository.Users;
+            newProjectModel.Project = newProject;
+            return PartialView(newProjectModel);
         }
     }
 }

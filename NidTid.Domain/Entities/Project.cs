@@ -32,8 +32,7 @@ namespace NidTid.Domain.Entities
         [Display(Name = "Aktivt")]
         public bool Active { get; set; }
 
-        //[Display(Name = "Projektansvarig")]
-        [HiddenInput(DisplayValue = false)]
+        [Display(Name = "Projektansvarig")]
         public int UserId { get; set; }
 
         [HiddenInput(DisplayValue = false)]

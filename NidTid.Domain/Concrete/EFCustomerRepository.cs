@@ -13,9 +13,15 @@ namespace NidTid.Domain.Concrete {
         }
 
        
-        public void SaveCustomer(Customer customer) {
+        public int SaveCustomer(Customer customer) 
+        {
+            var currentId = customer.Id;
             if (customer.Id == 0) {
                 context.Customers.Add(customer);
+                context.SaveChanges();
+                currentId = (from c in context.Customers
+                              orderby c.Id descending
+                              select c.Id).First();
             }
             else {
                 Customer dbCustomer = context.Customers.Find(customer.Id);
@@ -32,6 +38,7 @@ namespace NidTid.Domain.Concrete {
                 }
             }
             context.SaveChanges();
+            return currentId;
         }
     }
 

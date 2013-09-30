@@ -17,7 +17,7 @@ namespace NidTid.WebUI.Models
         public Nullable<int> UserId { get; set; }
         public Nullable<DateTime> fromDate { get; set; }
         public Nullable<DateTime> toDate { get; set; }
-        public int Limit { get; set; }
+        public Nullable<int> Limit { get; set; }
         
 
         public IQueryable<Report> Filter(IQueryable<Report> reports) {
@@ -39,7 +39,7 @@ namespace NidTid.WebUI.Models
 		    }
 
             if (this.Limit != null) {
-                reports = reports.Take(Limit);
+                reports = reports.Take(Limit.Value);
             }
             
 

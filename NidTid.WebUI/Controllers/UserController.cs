@@ -14,6 +14,12 @@ namespace NidTid.WebUI.Controllers
 {
     public class UserController : Controller
     {
+        private IUserRepository repository;
+
+        public UserController(IUserRepository userRepository) {
+            this.repository = userRepository;
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Login(string returnUrl = "")
@@ -40,7 +46,6 @@ namespace NidTid.WebUI.Controllers
 
                 ModelState.AddModelError("", "Felaktikt användarnamn eller lösenord");
             }
-
             return View(model);
         }
 
@@ -50,5 +55,42 @@ namespace NidTid.WebUI.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "User", null);
         }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Index(int? id)
+        {
+            User selectedUser = new User();
+            if (id != null) {
+                selectedUser = repository.Users.FirstOrDefault(u => u.Id == id);
+            }
+            return View(selectedUser);
+        }
+
+        [HttpPost]
+        public ActionResult SaveUser(User currentUser)
+        {
+            var currentId = 0;
+            if (ModelState.IsValid)
+            {
+                currentId = repository.SaveUser(currentUser);
+            }
+            else
+            {
+                //FIXA FELMEDDELANDE
+            }
+            return RedirectToAction(actionName: "Index", routeValues: new { id = currentId });
+        }
+
+        public ActionResult FilteredUsers(string term)
+        {
+            var filteredUsers = repository.Users.Where(c => c.Name.StartsWith(term)).Select(c => new
+            {
+                label = c.Name,
+                value = c.Id
+            });
+            return Json(filteredUsers, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
