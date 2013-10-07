@@ -9,5 +9,6 @@ namespace NidTid.Domain.Abstract
         IQueryable<Report> Reports { get; }
 
         void SaveReport(Report report);
+        void DeleteReport(Report report);
     }
 }

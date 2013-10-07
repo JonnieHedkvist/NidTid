@@ -15,6 +15,10 @@ namespace NidTid.Domain.Concrete
             get { return context.Reports; }
         }
 
+        public void DeleteReport(Report report) {
+            context.Reports.Remove(report);
+            context.SaveChanges();
+        }
 
         public void SaveReport(Report report) {
             if (report.Id == 0)

@@ -165,6 +165,31 @@
         });
     });
 
+    $(document.body).on("click", "#deleteReport", function () {
+        var reportId = $(this).attr("data-id");
+        bootbox.confirm("Vill du permanent ta bort denna rapport?", function (result) {
+            if (result = true) {
+                deleteReport(reportId);
+            }
+        });
+    });
+
+    $(document.body).on("click", "#submitEditedReport", function () {
+        var userId = $("#UserId").val();
+        $.ajax({
+            type: 'POST',
+            url: "/Report/SaveReport",
+            data: $('#editReportForm').serialize(),
+            success: function (result) {
+                $('#editReportModal').modal('hide');
+                showReports(null, userId, null, null, 8, "List");
+            },
+            error: function (result) {
+                alert("Ett fel inträffade, försök igen.");
+            }
+        });
+    });
+
     $(document.body).on("click", "#editReport", function (e) {
         e.preventDefault();
         var reportId = $(this).attr("data-id");
@@ -177,9 +202,7 @@
             success: function (result) {
                 $('#editReportModal').html(result);
                 $('#editReportModal').modal('show');
-            },
-            error: function (result) {
-                alert("Ett fel inträffade, försök igen.");
+                $('.datepicker').datepicker();
             }
         });
     });
@@ -211,6 +234,21 @@ function updateVehicles() {
             },
         success: function (vehicles) {
             $('#vehicleDiv').html(vehicles);
+        }
+    });
+}
+
+function deleteReport(id) {
+    var userId = $("#UserId").val();
+    $.ajax({
+        type: 'POST',
+        url: "/Report/DeleteReport",
+        data:
+            {
+                reportId: id
+            },
+        success: function () {
+            showReports(null, userId, null, null, 8, "List");
         }
     });
 }

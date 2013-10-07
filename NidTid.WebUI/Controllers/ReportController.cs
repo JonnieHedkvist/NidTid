@@ -64,6 +64,14 @@ namespace NidTid.WebUI.Controllers
             return message;
         }
 
+        [HttpPost]
+        [Authorize]
+        public void DeleteReport(int reportId)
+        {
+            Report report = repository.Reports.FirstOrDefault(r => r.Id == reportId);
+            repository.DeleteReport(report);
+        }
+
         [HttpGet]
         [Authorize]
         public ActionResult Spreadsheet()
