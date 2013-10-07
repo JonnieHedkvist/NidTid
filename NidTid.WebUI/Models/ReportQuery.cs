@@ -23,27 +23,27 @@ namespace NidTid.WebUI.Models
         public IQueryable<Report> Filter(IQueryable<Report> reports) {
 
             if (this.fromDate != null) {
-                reports = reports.Where(r => r.Date >= this.fromDate).OrderByDescending(r => r.Id);
+                reports = reports.Where(r => r.Date >= this.fromDate);
             }
 
             if (this.toDate != null) {
-                reports = reports.Where(r => r.Date <= this.toDate).OrderByDescending(r => r.Id);
+                reports = reports.Where(r => r.Date <= this.toDate);
             }
 
             if (this.ProjectId !=null) {
-                reports = reports.Where(r => r.ProjectId == this.ProjectId).OrderByDescending(r => r.Id);
+                reports = reports.Where(r => r.ProjectId == this.ProjectId);
 		    }
 
 		    if (this.UserId != null) {
-                reports = reports.Where(r => r.UserId == this.UserId).OrderByDescending(r => r.Id);
+                reports = reports.Where(r => r.UserId == this.UserId);
 		    }
 
             if (this.Limit != null) {
                 reports = reports.Take(Limit.Value);
             }
-            
 
-            return reports;
+
+            return reports.OrderByDescending(r => r.Id);
         }
 
     

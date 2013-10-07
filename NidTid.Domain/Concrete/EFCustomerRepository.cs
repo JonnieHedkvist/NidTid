@@ -12,6 +12,16 @@ namespace NidTid.Domain.Concrete {
             get { return context.Customers; }
         }
 
+        public IQueryable<Customer> ActiveCustomers
+        {
+            get {
+                var activeCustomers = (from proj in context.Projects
+                                        where proj.Active == true
+                                        select proj.Customer).Distinct().OrderBy(c => c.Name);
+                return activeCustomers;
+            }
+        }
+
        
         public int SaveCustomer(Customer customer) 
         {

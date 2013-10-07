@@ -32,7 +32,7 @@ namespace NidTid.WebUI.Controllers
         {
             ReportViewModel report = new ReportViewModel();
             report.Report = new Report();
-            report.Customers = customerRepo.Customers;
+            report.Customers = customerRepo.ActiveCustomers;
             return View(report);
         }
 

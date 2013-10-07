@@ -5,6 +5,7 @@ namespace NidTid.Domain.Abstract {
     public interface ICustomerRepository {
         
         IQueryable<Customer> Customers { get; }
+        IQueryable<Customer> ActiveCustomers { get; }
 
         int SaveCustomer(Customer customer);
     }   

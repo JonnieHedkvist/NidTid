@@ -65,7 +65,7 @@ namespace NidTid.WebUI.Controllers {
         
         public ActionResult FilteredProjects(int customerId) {
             Customer tempCustomer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
-            var filteredProjects = tempCustomer.Project.Select(p => new 
+            var filteredProjects = tempCustomer.Project.Where(proj => proj.Active == true).Select(p => new 
             {
                 name = p.Name,
                 id = p.Id
