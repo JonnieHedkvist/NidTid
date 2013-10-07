@@ -1,0 +1,68 @@
+﻿@model NidTid.WebUI.Models.ReportViewModel
+@{
+    var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.Current.User).CustomIdentity;
+}
+      
+<div class="row-fluid">
+        <div class="well container-fluid">
+            <form id="editReportForm" action="/Report/SaveReport" method="post">  
+                <fieldset>  
+                    <legend>Redigera timrapport</legend>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <select id="customerDropDown" name="customerDropDown">
+                                <option value="@Model.Report.Project.CustomerId">@Model.Report.Project.Customer.Name</option>
+                                    @foreach (var c in Model.Customers) { 
+                                        <option value="@c.Id">@c.Name</option>
+                                    }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                             <select id="projectDropDown" name="Report.ProjectId">
+                                <option value="@Model.Report.ProjectId">@Model.Report.Project.Name</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="control-group">  
+                                <label class="control-label" for="Report.Date">Datum</label>  
+                                <div class="controls">  
+                                    <input type="text" class="datepicker input-small" name="Report.Date" value="@Model.Report.Date" /> 
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="control-group">  
+                                <label>Arbetad tid</label>  
+                                <input type="text" class="smallField" name="Report.Deb" value="@Model.Report.Deb"/> 
+                                <input type="text" class="smallField" name="Report.EjDeb" value="@Model.Report.EjDeb" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <label class="control-label" for="Report.Notes">Notering</label>  
+                            <div class="controls">  
+                                <textarea class="input-large" name="Report.Notes" id="textarea" rows="3">@Model.Report.Notes</textarea> 
+                            </div>  
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="Spara rapport"/>
+                
+                </fieldset>
+                    <input type="hidden" id="UserId" name="Report.UserId" value="@identity.UserId" />
+                    <input type="hidden" name="Report.Id" value="@Model.Report.Id" />
+                    @Html.EditorFor(model => model.Report.BillId)
+                    @Html.EditorFor(model => model.Report.SalaryId)
+            </form>
+        </div>
+</div>
+    <div class="modal-footer">  
+        <a href="#" class="btn btn-success">Call to action</a>  
+        <a href="#" class="btn" data-dismiss="modal">Close</a>  
+    </div>

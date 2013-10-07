@@ -52,8 +52,7 @@
         });
     });
 
-
-    $("#customerDropDown").change(function () {
+    $(document.body).on("change", "#customerDropDown", function () {
         var customerId = $("#customerDropDown option:selected").val();
         $.ajax({
             type: 'GET',
@@ -166,6 +165,25 @@
         });
     });
 
+    $(document.body).on("click", "#editReport", function (e) {
+        e.preventDefault();
+        var reportId = $(this).attr("data-id");
+        $.ajax({
+            type: 'GET',
+            url: "/Report/EditReportModal",
+            data: {
+                reportId: reportId
+            },
+            success: function (result) {
+                $('#editReportModal').html(result);
+                $('#editReportModal').modal('show');
+            },
+            error: function (result) {
+                alert("Ett fel inträffade, försök igen.");
+            }
+        });
+    });
+
     $("#filterReports").click(function () {
         var userId = $("#userDropDown").val();
         var projectId = $("#projectDropDown").val();
@@ -214,10 +232,6 @@ function showReports(projectId, userId, fromDate, toDate, limit, url) {
             $("table.tablesorter").tablesorter({ widthFixed: true, sortList: [[0, 0]] })
         }
     });
-
-
-
-
 }
 /*
 ------------------------Menu Options---------------*/

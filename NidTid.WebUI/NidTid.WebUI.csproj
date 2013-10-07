@@ -315,6 +315,7 @@
     <Content Include="Views\MeterPost\NewMeterPost.cshtml" />
     <Content Include="Views\Vehicle\List.cshtml" />
     <Content Include="Views\Vehicle\VehicleInfo.cshtml" />
+    <Content Include="Views\Report\EditReportModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

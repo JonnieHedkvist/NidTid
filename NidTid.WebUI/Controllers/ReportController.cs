@@ -36,6 +36,16 @@ namespace NidTid.WebUI.Controllers
             return View(report);
         }
 
+        [HttpGet]
+        [Authorize]
+        public ActionResult EditReportModal(int reportId)
+        {
+            ReportViewModel report = new ReportViewModel();
+            report.Report = repository.Reports.FirstOrDefault(r => r.Id == reportId);
+            report.Customers = customerRepo.Customers;
+            return PartialView(report);
+        }
+
         [HttpPost]
         [Authorize]
         public String SaveReport(ReportViewModel reportModel)
