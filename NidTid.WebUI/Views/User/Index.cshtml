@@ -40,7 +40,14 @@
                 </div>
                 <div class="tab-pane" id="reportsTab">
                     <div class="row-fluid">
-                        <div class="span12">
+                        <div class="span3">
+                            @{
+                                if(Model.Id > 0) {
+                                    Html.RenderAction("UserSummary", "Report", new { userId = Model.Id});
+                                }
+                            }
+                        </div>
+                        <div class="span9">
                             <div id="reportList">
                                 @{
                                     if(Model.Id > 0) {

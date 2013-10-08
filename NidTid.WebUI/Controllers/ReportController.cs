@@ -97,10 +97,9 @@ namespace NidTid.WebUI.Controllers
             return PartialView(filteredReports);
         }
 
-        public ActionResult UserSummary()
+        public ActionResult UserSummary(int userId)
         {
-            var identity = ((CustomPrincipal)HttpContext.User).CustomIdentity;
-            ReportSummaryViewModel reportSummary = new ReportSummaryViewModel(this.repository.Reports, identity.UserId);
+            ReportSummaryViewModel reportSummary = new ReportSummaryViewModel(this.repository.Reports, userId);
             return PartialView(reportSummary);
         }
 
