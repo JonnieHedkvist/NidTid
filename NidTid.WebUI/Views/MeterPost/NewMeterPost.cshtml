@@ -2,7 +2,7 @@
 @{
     var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.Current.User).CustomIdentity;
 }
-<div class="well container-fluid">
+    <div class="well container-fluid">
         <form id="meterpostForm" action="" method="post">  
             <fieldset>  
                 <legend>Registrera post i körjournal</legend>
@@ -11,7 +11,7 @@
                         <select id="vehicleDropDown" name="MeterPost.VehicleId">
                             <option value="null">-- Fordon --</option>
                                 @foreach (var v in Model.Vehicles) { 
-                                    <option value=@v.Id>@v.RegNr</option>
+                                    <option value="@v.Id">@v.RegNr</option>
                                 }
                         </select>
                     </div>
@@ -50,4 +50,11 @@
                 <input type="hidden" id="UserId" name="MeterPost.UserId" value="@identity.UserId" />
                 @Html.EditorFor(model => model.MeterPost.Id)
         </form>
+    </div>
+    <a href="#newVehicleModal" data-toggle="modal">Lägg till fordon</a>
+
+    <div id="newVehicleModal" class="modal hide fade">
+        @{
+            Html.RenderAction("Create", "Vehicle");
+        }
     </div>

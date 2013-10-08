@@ -29,6 +29,26 @@ namespace NidTid.WebUI.Controllers
         }
 
         [HttpGet]
+        public ActionResult Create() {
+            Vehicle vehicle = new Vehicle();
+            return PartialView(vehicle);
+        }
+
+        [HttpPost]
+        public string Create(Vehicle vehicle)
+        {
+            string msg = "";
+            if (ModelState.IsValid) {
+                repository.SaveVehicle(vehicle);
+                msg = "Fordonet är tillagt i databasen.";
+            }
+            else {
+                msg = "Ett fel inträffade, försök igen.";
+            }
+            return msg;
+        }
+
+        [HttpGet]
         public ActionResult List()
         {
             VehicleListViewModel model = new VehicleListViewModel();
@@ -42,14 +62,22 @@ namespace NidTid.WebUI.Controllers
         {
             Vehicle vehicle = repository.Vehicles.FirstOrDefault(v => v.Id == id);
             VehicleViewModel model = new VehicleViewModel();
-            MeterPost lastPost = vehicle.MeterPost.LastOrDefault(m => m.VehicleId == id);
+            if (vehicle.MeterPost.Count() > 0) {
+                MeterPost lastPost = vehicle.MeterPost.LastOrDefault(m => m.VehicleId == id);
+                model.CurrentMeter = lastPost.CurrentMeter;
+                model.Description = vehicle.Description;
+                model.Date = lastPost.Date.ToString();
+                model.User = lastPost.User.Name;
+                model.RegNr = vehicle.RegNr;
+            }
+            else {
+                model.CurrentMeter = 0;
+                model.Description = vehicle.Description;
+                model.Date = "-";
+                model.User = "-";
+                model.RegNr = vehicle.RegNr;
+            }
 
-            model.CurrentMeter = lastPost.CurrentMeter;
-            model.Description = vehicle.Description;
-            model.Date = lastPost.Date;
-            model.User = lastPost.User.Name;
-            model.RegNr = vehicle.RegNr;
-            
             return PartialView(model);
         }
 

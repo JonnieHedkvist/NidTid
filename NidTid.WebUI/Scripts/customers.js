@@ -125,7 +125,22 @@
             }
         });
     });
-
+    
+    $(document.body).on("click", "#createVehicle", function () {
+        $.ajax({
+            type: 'POST',
+            url: "/Vehicle/Create",
+            data: $('#vehicleForm').serialize(),
+            success: function (result) {
+                alert(result);
+                $('#newVehicleModal').modal('hide');
+                updateVehicles();
+            },
+            error: function (result) {
+                alert("Ett fel inträffade och uppgifterna kunde inte sparas. Försök igen.");
+            }
+        });
+    });
     /********************************************
         ----------->> Projects <<-------------
     */

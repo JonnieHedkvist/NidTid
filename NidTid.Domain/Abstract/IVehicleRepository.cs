@@ -8,6 +8,6 @@ namespace NidTid.Domain.Abstract
 
         IQueryable<Vehicle> Vehicles { get; }
 
-        int SaveVehicle(Vehicle vehicle);
+        void SaveVehicle(Vehicle vehicle);
     }
 }

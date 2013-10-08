@@ -16,9 +16,22 @@ namespace NidTid.Domain.Concrete
         }
 
 
-        public int SaveVehicle(Vehicle vehicle)
+        public void SaveVehicle(Vehicle vehicle)
         {
-            return 1;
+            if (vehicle.Id == 0)
+            {
+                context.Vehicles.Add(vehicle);
+            }
+            else
+            {
+                Vehicle dbPost = context.Vehicles.Find(vehicle.Id);
+                if (dbPost != null)
+                {
+                    dbPost.RegNr = vehicle.RegNr;
+                    dbPost.Description = vehicle.Description;
+                }
+            }
+            context.SaveChanges();
         }
     }
 

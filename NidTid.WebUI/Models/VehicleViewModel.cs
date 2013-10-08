@@ -11,7 +11,7 @@ namespace NidTid.WebUI.Models
         public string Description { get; set; }
         public int CurrentMeter { get; set; }
         public string User { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
     }
 }
