@@ -22,6 +22,11 @@ namespace NidTid.Domain.Concrete {
             }
         }
 
+        public void DeleteCustomer(Customer customer) {
+            context.Customers.Remove(customer);
+            context.SaveChanges();
+        }
+
        
         public int SaveCustomer(Customer customer) 
         {

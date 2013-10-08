@@ -19,7 +19,7 @@
                 <legend>Registrera ny timrapport</legend>
                 <div class="row-fluid">
                     <div class="span12">
-                        <select id="customerDropDown" name="customerDropDown">
+                        <select class="customerDropDown" name="customerDropDown">
                             <option value="null">-- Välj Kund --</option>
                                 @foreach (var c in Model.Customers) { 
                                     <option value=@c.Id>@c.Name</option>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row-fluid">
                     <div class="span12">
-                         <select id="projectDropDown" name="Report.ProjectId">
+                         <select class="projectDropDown" name="Report.ProjectId">
                             <option value="null">-- Välj Projekt --</option>
                         </select>
                     </div>

@@ -46,8 +46,28 @@ namespace NidTid.WebUI.Controllers {
             return RedirectToAction(actionName: "CustomerDetails", routeValues: new { id = currentId });
         }
 
-        public ViewResult Create() {
-            return View("CustomerDetails", new Customer());
+        [HttpPost]
+        public String DeleteCustomer(int customerId)
+        {
+            string msg = "";
+            Customer customer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
+            if (customer.Project.Count() > 0)
+            {
+                msg = "Kan ej radera en kund med registrerade projekt!";
+            }
+            else {
+                repository.DeleteCustomer(customer);
+                msg = "Kunden har raderats ur databasen";
+            }
+            return msg;
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult Create() {
+            Customer newCustomer = new Customer();
+            return PartialView(newCustomer);
         }
         
 

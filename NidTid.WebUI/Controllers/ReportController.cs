@@ -42,7 +42,7 @@ namespace NidTid.WebUI.Controllers
         {
             ReportViewModel report = new ReportViewModel();
             report.Report = repository.Reports.FirstOrDefault(r => r.Id == reportId);
-            report.Customers = customerRepo.Customers;
+            report.Customers = customerRepo.ActiveCustomers;
             return PartialView(report);
         }
 
@@ -56,10 +56,9 @@ namespace NidTid.WebUI.Controllers
             String message = "";
             if (ModelState.IsValid) {
                 repository.SaveReport(report);
-                message = "Rapporten har sparats!";
             }
             else {
-                message = "Fel!";
+                message = "Ett eller flera fält är fel ifyllda. Försök igen.";
             }
             return message;
         }

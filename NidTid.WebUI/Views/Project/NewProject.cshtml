@@ -1,7 +1,12 @@
 ﻿@model NidTid.WebUI.Models.ProjectViewModel
 
 <div class="row-fluid">
-    <div class="span9 offset3 well">
+    <div class="span3">
+        <fieldset>
+            <legend>@Model.Project.Customer.Name</legend>
+        </fieldset>
+    </div>
+    <div class="span9 well">
         <fieldset>
             <legend>Skapa projekt</legend>
             <form id="projectForm" action="" method="post">

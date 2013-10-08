@@ -14,10 +14,12 @@ namespace NidTid.WebUI.Controllers
     public class ProjectController : Controller {
         private IProjectRepository repository;
         private IUserRepository userRepository;
+        private ICustomerRepository customerRepository;
 
-        public ProjectController(IProjectRepository projectRepository, IUserRepository userRepo) {
+        public ProjectController(IProjectRepository projectRepository, IUserRepository userRepo, ICustomerRepository customRepo) {
             this.repository = projectRepository;
             this.userRepository = userRepo;
+            this.customerRepository = customRepo;
         }
 
         [HttpGet]
@@ -67,6 +69,7 @@ namespace NidTid.WebUI.Controllers
             Project newProject = new Project();
             newProject.CustomerId = customerId;
             newProject.Name = "Nytt Projekt";
+            newProject.Customer = customerRepository.Customers.FirstOrDefault(c => c.Id == customerId);
             
             ProjectViewModel newProjectModel = new ProjectViewModel();
             newProjectModel.Users = userRepository.Users;

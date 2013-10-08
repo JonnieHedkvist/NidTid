@@ -317,6 +317,7 @@
     <Content Include="Views\Vehicle\List.cshtml" />
     <Content Include="Views\Vehicle\VehicleInfo.cshtml" />
     <Content Include="Views\Report\EditReportModal.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
