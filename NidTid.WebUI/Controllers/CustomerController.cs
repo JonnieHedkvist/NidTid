@@ -48,10 +48,10 @@ namespace NidTid.WebUI.Controllers {
 
         [HttpPost]
         [Authorize]
-        public String DeleteCustomer(int customerId)
+        public String DeleteCustomer(int id)
         {
             string msg = "";
-            Customer customer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
+            Customer customer = repository.Customers.FirstOrDefault(c => c.Id == id);
             if (customer.Project.Count() > 0)
             {
                 msg = "Kan ej radera en kund med registrerade projekt!";

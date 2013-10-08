@@ -91,10 +91,10 @@ namespace NidTid.WebUI.Controllers
 
         [HttpPost]
         [Authorize]
-        public String DeleteUser(int userId)
+        public String DeleteUser(int id)
         {
             string msg = "";
-            User user = repository.Users.FirstOrDefault(u => u.Id == userId);
+            User user = repository.Users.FirstOrDefault(u => u.Id == id);
             if (user.MeterPost.Count() > 0 || user.Project.Count() > 0 || user.Report.Count() > 0 )
             {
                 msg = "Användaren är knuten till andra object i databasen (projekt, körjournaler eller timrapporter), och kan därför inte raderas!";

@@ -65,9 +65,9 @@ namespace NidTid.WebUI.Controllers
 
         [HttpPost]
         [Authorize]
-        public void DeleteReport(int reportId)
+        public void DeleteReport(int id)
         {
-            Report report = repository.Reports.FirstOrDefault(r => r.Id == reportId);
+            Report report = repository.Reports.FirstOrDefault(r => r.Id == id);
             repository.DeleteReport(report);
         }
 

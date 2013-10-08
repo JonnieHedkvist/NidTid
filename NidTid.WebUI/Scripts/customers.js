@@ -60,7 +60,7 @@
         var customerName = $(this).attr("data-name");
         bootbox.confirm("Är du säker på att du vill ta bort " + customerName +"? Detta kan inte ångras!", function (result) {
             if (result == true) {
-                deleteCustomer(customerId);
+                deleteFromDB(customerId, "/Customer/DeleteCustomer", "/Customer/CustomerDetails")
             }
         });
     });
@@ -102,7 +102,7 @@
         var userName = $(this).attr("data-name");
         bootbox.confirm("Är du säker på att du vill ta bort " + userName + "? Detta kan inte ångras!", function (result) {
             if (result == true) {
-                deleteUser(userId);
+                deleteFromDB(userId, "/User/DeleteUser", "/User/index")
             }
         });
     });
@@ -314,7 +314,7 @@ function deleteReport(id) {
         url: "/Report/DeleteReport",
         data:
             {
-                reportId: id
+                id: id
             },
         success: function () {
             showReports(null, userId, null, null, 8, "List");
@@ -322,32 +322,17 @@ function deleteReport(id) {
     });
 }
 
-function deleteCustomer(id) {
+function deleteFromDB(id, action, returnURL) {
     $.ajax({
         type: 'POST',
-        url: "/Customer/DeleteCustomer",
+        url: action,
         data:
             {
-                customerId: id
+                id: id
             },
         success: function (message) {
             alert(message);
-            document.location.href = "/Customer/CustomerDetails/";
-        }
-    });
-}
-
-function deleteUser(id) {
-    $.ajax({
-        type: 'POST',
-        url: "/User/DeleteUser",
-        data:
-            {
-                userId: id
-            },
-        success: function (message) {
-            alert(message);
-            document.location.href = "/User/Index/";
+            document.location.href = returnURL;
         }
     });
 }
