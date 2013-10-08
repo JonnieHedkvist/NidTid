@@ -12,7 +12,6 @@ using System.Web.Services;
 namespace NidTid.WebUI.Controllers {
     public class CustomerController : Controller {
         private ICustomerRepository repository;
-        private IProjectRepository projectRepository;
 
         public CustomerController(ICustomerRepository customerRepository) {
             this.repository = customerRepository;

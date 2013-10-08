@@ -70,7 +70,7 @@
                 @Html.EditorFor(model => model.Report.SalaryId)
         </form>
     </div>
-
+        @Html.ActionLink("Lägg till post i körjournal", "Index", "Vehicle")
     </div>
     <div class="span8">
         <fieldset>
@@ -78,7 +78,7 @@
             <p class="help-block text-right"> Klicka på en rapport för att se notering. </p>
             <div id="reportList">
                 @{
-                    Html.RenderAction("List", "Report", new{UserId=identity.UserId, Limit=8 });
+                    Html.RenderAction("List", "Report", new { UserId = identity.UserId, Limit = 8 });
                 }
             </div>
         </fieldset>
