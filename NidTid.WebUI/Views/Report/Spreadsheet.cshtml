@@ -29,7 +29,7 @@
                             <div class="control-group span2 spreadsheetControl">  
                                 <label class="control-label" for="customerDropDown">Kund</label>  
                                 <div class="controls">  
-                                    <select id="customerDropDown" name="customerDropDown">
+                                    <select class="customerDropDown" name="customerDropDown">
                                         <option value="null">-- Alla --</option>
                                             @foreach (var c in Model.Customers) { 
                                                 <option value=@c.Id>@c.Name</option>
@@ -40,7 +40,7 @@
                             <div class="control-group span2 spreadsheetControl">  
                                 <label class="control-label" for="ProjectId">Projekt</label>  
                                 <div class="controls">  
-                                    <select id="projectDropDown" name="ProjectId">
+                                    <select class="projectDropDown" name="ProjectId">
                                         <option value="null">-- Alla --</option>
                                     </select>
                                 </div>  

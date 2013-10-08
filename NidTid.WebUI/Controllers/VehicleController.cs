@@ -66,7 +66,7 @@ namespace NidTid.WebUI.Controllers
                 MeterPost lastPost = vehicle.MeterPost.LastOrDefault(m => m.VehicleId == id);
                 model.CurrentMeter = lastPost.CurrentMeter;
                 model.Description = vehicle.Description;
-                model.Date = lastPost.Date.ToString();
+                model.Date = lastPost.Date.ToShortDateString();
                 model.User = lastPost.User.Name;
                 model.RegNr = vehicle.RegNr;
             }
