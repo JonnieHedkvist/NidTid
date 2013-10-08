@@ -47,6 +47,7 @@ namespace NidTid.WebUI.Controllers {
         }
 
         [HttpPost]
+        [Authorize]
         public String DeleteCustomer(int customerId)
         {
             string msg = "";

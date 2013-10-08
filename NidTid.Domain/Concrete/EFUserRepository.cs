@@ -15,6 +15,11 @@ namespace NidTid.Domain.Concrete
             get { return context.Users; }
         }
 
+        public void DeleteUser(User user) {
+            context.Users.Remove(user);
+            context.SaveChanges();
+        }
+
 
         public int SaveUser(User user)
         {

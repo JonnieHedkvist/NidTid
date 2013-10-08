@@ -2,6 +2,7 @@
     var activeProject;
 
     $('#customerTabs a:first').tab('show');
+    $('#userTabs a:first').tab('show');
 
     $('.datepicker').datepicker();
 
@@ -82,16 +83,26 @@
         });
     });
 
-    $(document.body).on("click", "#newCustomer", function () {
+    $(document.body).on("click", "#newUser", function () {
         $.ajax({
             type: 'GET',
-            url: "/Customer/Create",
+            url: "/User/Create",
             success: function (result) {
-                $('#customerTabs a:first').tab('show');
-                $('#customerTab').html(result);
+                $('#userTabs a:first').tab('show');
+                $('#userTab').html(result);
             },
             error: function (result) {
                 alert("Ett fel inträffade. Försök igen.");
+            }
+        });
+    });
+
+    $(document.body).on("click", "#btnDeleteUser", function () {
+        var userId = $(this).attr("data-id");
+        var userName = $(this).attr("data-name");
+        bootbox.confirm("Är du säker på att du vill ta bort " + userName + "? Detta kan inte ångras!", function (result) {
+            if (result == true) {
+                deleteUser(userId);
             }
         });
     });
@@ -322,6 +333,21 @@ function deleteCustomer(id) {
         success: function (message) {
             alert(message);
             document.location.href = "/Customer/CustomerDetails/";
+        }
+    });
+}
+
+function deleteUser(id) {
+    $.ajax({
+        type: 'POST',
+        url: "/User/DeleteUser",
+        data:
+            {
+                userId: id
+            },
+        success: function (message) {
+            alert(message);
+            document.location.href = "/User/Index/";
         }
     });
 }

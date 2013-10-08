@@ -67,6 +67,13 @@ namespace NidTid.WebUI.Controllers
             return View(selectedUser);
         }
 
+        [HttpGet]
+        [Authorize]
+        public ActionResult Create() { 
+            User user = new User();
+            return PartialView(user);
+        }
+
         [HttpPost]
         public ActionResult SaveUser(User currentUser)
         {
@@ -80,6 +87,24 @@ namespace NidTid.WebUI.Controllers
                 //FIXA FELMEDDELANDE
             }
             return RedirectToAction(actionName: "Index", routeValues: new { id = currentId });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public String DeleteUser(int userId)
+        {
+            string msg = "";
+            User user = repository.Users.FirstOrDefault(u => u.Id == userId);
+            if (user.MeterPost.Count() > 0 || user.Project.Count() > 0 || user.Report.Count() > 0 )
+            {
+                msg = "Användaren är knuten till andra object i databasen (projekt, körjournaler eller timrapporter), och kan därför inte raderas!";
+            }
+            else
+            {
+                repository.DeleteUser(user);
+                msg = "Användaren har raderats ur databasen";
+            }
+            return msg;
         }
 
         public ActionResult FilteredUsers(string term)
