@@ -146,6 +146,7 @@
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Models\MeterPostViewModel.cs" />
     <Compile Include="Models\ReportSummaryViewModel.cs" />
+    <Compile Include="Models\SpreadsheetReportsModel.cs" />
     <Compile Include="Models\SpreadsheetViewModel.cs" />
     <Compile Include="Models\CustomersListViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />

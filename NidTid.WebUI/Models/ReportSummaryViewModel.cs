@@ -14,6 +14,8 @@ namespace NidTid.WebUI.Models
         public decimal EjDebToday { get; set; }
         public decimal DebMonth { get; set; }
         public decimal EjDebMonth { get; set; }
+        public decimal DebQueryTotal { get; set; }
+        public decimal EjDebQueryTotal { get; set; }
 
         public ReportSummaryViewModel(IQueryable<Report> reports, int userId) 
         {

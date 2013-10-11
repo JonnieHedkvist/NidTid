@@ -84,9 +84,14 @@ namespace NidTid.WebUI.Controllers
         public ActionResult SpreadsheetResult(ReportQuery query)
         {
             var filteredReports = query.Filter(this.repository.Reports);
-
-            var k = filteredReports.ToList().Count;
-            return PartialView(filteredReports);
+            SpreadsheetReportsModel model = new SpreadsheetReportsModel();
+            model.Reports = filteredReports;
+            model.DebTotal = (from r in filteredReports
+                              select (decimal?)r.Deb).Sum() ?? 0;
+            model.EjDebTotal = (from r in filteredReports
+                              select (decimal?)r.EjDeb).Sum() ?? 0;
+            model.TimeTotal = model.DebTotal + model.EjDebTotal;
+            return PartialView(model);
         }
 
         public ActionResult List(ReportQuery query)

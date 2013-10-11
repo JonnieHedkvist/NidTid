@@ -293,10 +293,10 @@
 
     $("#filterReports").click(function () {
         var userId = $("#userDropDown").val();
-        var projectId = $("#projectDropDown").val();
+        var projectId = $(".projectDropDown").val();
         var fromDate = $("#fromDate").val();
         var toDate = $("#toDate").val();
-        showReports(projectId, userId, fromDate, toDate, 50, "SpreadsheetResult");
+        showReports(projectId, userId, fromDate, toDate, null, "SpreadsheetResult");
     });
 
 });

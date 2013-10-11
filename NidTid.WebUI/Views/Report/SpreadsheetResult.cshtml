@@ -1,4 +1,15 @@
-﻿@model IEnumerable<NidTid.Domain.Entities.Report>
+﻿@model NidTid.WebUI.Models.SpreadsheetReportsModel
+    <fieldset>
+        <legend>Filtrerade tidrapporter <p class="pull-right">Total tid: <b>@Model.TimeTotal</b></p></legend>
+    </fieldset>
+    <div class="row-fluid">
+        <div class="span3">
+            <h4>Debiterbart: <b>@Model.DebTotal</b></h4>
+        </div>
+        <div class="span3">
+            <h4>Ej Debiterbart: <b>@Model.EjDebTotal</b></h4>
+        </div>
+    </div>
 
         <div>
             <table class="table table-striped tablesorter">
@@ -14,13 +25,10 @@
                         Projekt
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Deb)
+                        Deb
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.EjDeb)
-                    </th>
-                    <th>
-                        Körsträcka
+                        Ej Deb
                     </th>
                     <th>
                         Användare
@@ -30,9 +38,9 @@
                 </tr>
                 </thead>
                 <tbody>
-               
+           
 
-            @foreach (var item in Model) {
+            @foreach (var item in Model.Reports) {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Date)
@@ -48,9 +56,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.EjDeb)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Km)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.User.Name)
