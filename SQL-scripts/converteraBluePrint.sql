@@ -1,3 +1,8 @@
+UPDATE [NidTidData].[dbo].Customers
+SET Name = REPLACE(Name,'_',' ')
+GO
+
+
 USE NidTidData
 SET IDENTITY_INSERT Customers ON
 GO
@@ -112,3 +117,12 @@ MERGE INTO [NidTidData].[dbo].[Reports] AS TGT
 WHEN MATCHED THEN
    UPDATE 
    SET TGT.Deb = CAST(SRC.Timmar as DECIMAL(18,2));
+
+MERGE INTO [NidTidData].[dbo].[Reports] AS TGT
+   USING 
+   (SELECT ejDeb, idTidrapporter FROM [nidbackupdb].[dbo].[tidrapporter] 
+   WHERE ISNUMERIC(ejDeb) != 0) AS SRC
+    ON TGT.[Id] = SRC.idTidrapporter
+WHEN MATCHED THEN
+   UPDATE 
+   SET TGT.EjDeb = CAST(SRC.ejDeb as DECIMAL(18,2));
