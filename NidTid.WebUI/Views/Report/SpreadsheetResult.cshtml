@@ -9,6 +9,11 @@
         <div class="span3">
             <h4>Ej Debiterbart: <b>@Model.EjDebTotal</b></h4>
         </div>
+        <div class="span3">
+            <a> @{
+                Html.ActionLink("Hämta som PDF", "SpreadsheetPdf", new { queryModel = Model });
+            }PDF Tack!</a>
+        </div>
     </div>
 
         <div>

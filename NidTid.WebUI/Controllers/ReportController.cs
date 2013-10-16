@@ -9,7 +9,6 @@ using NidTid.WebUI.Models;
 using System.Web.Services;
 using NidTid.WebUI.Security;
 
-
 namespace NidTid.WebUI.Controllers
 {
     public class ReportController : Controller
@@ -24,7 +23,6 @@ namespace NidTid.WebUI.Controllers
             this.customerRepo = customerRepository;
             this.userRepo = userRepository;
         }
-
 
         [HttpGet]
         [Authorize]

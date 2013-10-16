@@ -76,3 +76,5 @@ C:\Utveckling\DinTid\NidTid.WebUI\bin\System.Web.WebPages.Razor.xml
 C:\Utveckling\DinTid\NidTid.WebUI\obj\Debug\NidTid.WebUI.csprojResolveAssemblyReference.cache
 C:\Utveckling\DinTid\NidTid.WebUI\obj\Debug\NidTid.WebUI.dll
 C:\Utveckling\DinTid\NidTid.WebUI\obj\Debug\NidTid.WebUI.pdb
+C:\Utveckling\DinTid\NidTid.WebUI\bin\itextsharp.dll
+C:\Utveckling\DinTid\NidTid.WebUI\bin\RazorPDF.dll

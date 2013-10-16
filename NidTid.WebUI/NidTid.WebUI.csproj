@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.4.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\iTextSharp.5.4.4\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.4.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\itextsharp.xmlworker.5.4.4\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
@@ -136,6 +144,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeterPostController.cs" />
+    <Compile Include="Controllers\PdfController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -296,8 +305,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Customer\List.cshtml" />
     <Content Include="Views\Customer\CustomerDetails.cshtml" />
-    <Content Include="Views\Shared\CustomerAutoComplete.cshtml" />
-    <Content Include="Views\Shared\LeftMenu.cshtml" />
     <Content Include="Views\Project\ProjectDetails.cshtml" />
     <Content Include="Views\Shared\_CustomerPartial.cshtml" />
     <Content Include="Views\Project\NewProject.cshtml" />
@@ -309,7 +316,6 @@
     <Content Include="Views\Report\SpreadsheetResult.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Report\UserSummary.cshtml" />
-    <Content Include="Views\Shared\_editProject.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\_UserPartial.cshtml" />
     <Content Include="Views\Vehicle\Index.cshtml" />
@@ -335,6 +341,9 @@
       <Project>{aeba50fb-eb9d-4f84-8f95-402ee82a0939}</Project>
       <Name>NidTid.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

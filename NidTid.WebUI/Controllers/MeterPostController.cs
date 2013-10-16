@@ -41,7 +41,6 @@ namespace NidTid.WebUI.Controllers
             MeterPost meterpost = meterModel.MeterPost;
             var identity = ((CustomPrincipal)HttpContext.User).CustomIdentity;
             meterpost.UserId = identity.UserId;
-            //meterpost.CurrentMeter = Integer(meterModel.MeterPost.CurrentMeter);
             String message = "";
             if (ModelState.IsValid)
             {
