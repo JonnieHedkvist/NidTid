@@ -15,29 +15,17 @@ namespace NidTid.WebUI.Security
 
         private int _cacheTimeoutInMinutes = 30;
 
-        /// <summary>
-        /// Initialize values from web.config.
-        /// </summary>
-        /// <param name="name">The friendly name of the provider.</param>
-        /// <param name="config">A collection of the name/value pairs representing the provider-specific attributes specified in the configuration for this provider.</param>
+        
         public override void Initialize(string name, NameValueCollection config)
         {
-            // Set Properties
             int val;
             if (!string.IsNullOrEmpty(config["cacheTimeoutInMinutes"]) && Int32.TryParse(config["cacheTimeoutInMinutes"], out val))
                 _cacheTimeoutInMinutes = val;
 
-            // Call base method
             base.Initialize(name, config);
         }
 
-        /// <summary>
-        /// Verifies that the specified user name and password exist in the data source.
-        /// </summary>
-        /// <returns>
-        /// true if the specified username and password are valid; otherwise, false.
-        /// </returns>
-        /// <param name="username">The name of the user to validate. </param><param name="password">The password for the specified user. </param>
+       
         public override bool ValidateUser(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))

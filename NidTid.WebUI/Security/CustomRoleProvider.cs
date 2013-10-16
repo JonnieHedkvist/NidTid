@@ -17,12 +17,10 @@ namespace NidTid.WebUI.Security
         
         public override void Initialize(string name, NameValueCollection config)
         {
-            // Set Properties
             int val;
             if (!string.IsNullOrEmpty(config["cacheTimeoutInMinutes"]) && Int32.TryParse(config["cacheTimeoutInMinutes"], out val))
                 _cacheTimeoutInMinutes = val;
  
-            // Call base method
             base.Initialize(name, config);
         }
  
@@ -53,10 +51,8 @@ namespace NidTid.WebUI.Security
                     userRoles = new[]{user.Role};
             }
  
-            //Store in cache
             HttpRuntime.Cache.Insert(cacheKey, userRoles, null, DateTime.Now.AddMinutes(_cacheTimeoutInMinutes), Cache.NoSlidingExpiration);
  
-            // Return
             return userRoles.ToArray();
         }      
 
