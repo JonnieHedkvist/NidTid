@@ -7,6 +7,7 @@ namespace NidTid.WebUI.Models
 {
     public class VehicleViewModel
     {
+        public int Id { get; set; }
         public string RegNr { get; set; }
         public string Description { get; set; }
         public int CurrentMeter { get; set; }

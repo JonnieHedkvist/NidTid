@@ -55,6 +55,24 @@ namespace NidTid.WebUI.Controllers
             return message;
         }
 
+        [HttpPost]
+        [Authorize]
+        public string DeletePost(int id)
+        {
+            MeterPost post = repository.MeterPosts.FirstOrDefault(r => r.Id == id);
+            repository.DeletePost(post);
+            return "Posten är raderad";
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult TableByVehicle(int vehicleId)
+        {
+            MeterPostListModel model = new MeterPostListModel();
+            model.MeterPosts = repository.MeterPosts.Where(m => m.VehicleId == vehicleId).OrderByDescending(r => r.Id);
+            return PartialView(model);
+        }
+
     }
 }
 

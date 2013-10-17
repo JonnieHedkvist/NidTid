@@ -36,6 +36,12 @@ namespace NidTid.Domain.Concrete
             }
             context.SaveChanges();
         }
+
+        public void DeletePost(MeterPost post)
+        {
+            context.MeterPosts.Remove(post);
+            context.SaveChanges();
+        }
     }
 
 }

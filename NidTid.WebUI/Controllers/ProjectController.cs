@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 
 namespace NidTid.WebUI.Controllers
 {
+    [Authorize]
     public class ProjectController : Controller {
         private IProjectRepository repository;
         private IUserRepository userRepository;

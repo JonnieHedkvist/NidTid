@@ -10,6 +10,7 @@ using System.Web.Services;
 
 
 namespace NidTid.WebUI.Controllers {
+    
     public class CustomerController : Controller {
         private ICustomerRepository repository;
 
@@ -23,7 +24,7 @@ namespace NidTid.WebUI.Controllers {
         }
         
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public ActionResult CustomerDetails(int? id) {
             Customer selectedCustomer = new Customer();
             if (id != null)
@@ -34,6 +35,7 @@ namespace NidTid.WebUI.Controllers {
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public ActionResult CustomerDetails(Customer currentCustomer) {
             var currentId = 0;
             if (ModelState.IsValid) {
@@ -47,7 +49,7 @@ namespace NidTid.WebUI.Controllers {
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public String DeleteCustomer(int id)
         {
             string msg = "";
@@ -65,7 +67,7 @@ namespace NidTid.WebUI.Controllers {
 
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public ActionResult Create() {
             Customer newCustomer = new Customer();
             return PartialView(newCustomer);
@@ -86,6 +88,17 @@ namespace NidTid.WebUI.Controllers {
         public ActionResult FilteredProjects(int customerId) {
             Customer tempCustomer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
             var filteredProjects = tempCustomer.Project.Where(proj => proj.Active == true).Select(p => new 
+            {
+                name = p.Name,
+                id = p.Id
+            });
+            return Json(filteredProjects, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult FilteredProjectsAll(int customerId)
+        {
+            Customer tempCustomer = repository.Customers.FirstOrDefault(c => c.Id == customerId);
+            var filteredProjects = tempCustomer.Project.Select(p => new
             {
                 name = p.Name,
                 id = p.Id

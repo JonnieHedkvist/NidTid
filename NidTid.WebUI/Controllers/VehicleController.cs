@@ -62,6 +62,7 @@ namespace NidTid.WebUI.Controllers
         {
             Vehicle vehicle = repository.Vehicles.FirstOrDefault(v => v.Id == id);
             VehicleViewModel model = new VehicleViewModel();
+            model.Id = id;
             if (vehicle.MeterPost.Count() > 0) {
                 MeterPost lastPost = vehicle.MeterPost.LastOrDefault(m => m.VehicleId == id);
                 model.CurrentMeter = lastPost.CurrentMeter;

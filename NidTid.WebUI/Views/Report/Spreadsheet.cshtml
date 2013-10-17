@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Spreadsheet";
+    var identity = ((NidTid.WebUI.Security.CustomPrincipal)HttpContext.Current.User).CustomIdentity;
 }
 <div class="row-fluid">
     <div class="span12">
@@ -18,17 +19,25 @@
                                 <label class="control-label" for="UserId">Antälld</label>  
                                 <div class="controls">  
                                     <select id="userDropDown" name="UserId">
-                                        <option value="null">-- Alla --</option>
-                                            @foreach (var c in Model.Users) { 
-                                                <option value=@c.Id>@c.Name</option>
+                                        @if (HttpContext.Current.User.IsInRole("Admin"))
+                                        {
+                                            <option value="null">-- Alla --</option>
+                                            foreach (var c in Model.Users) { 
+                                                <option value="@c.Id">@c.Name</option>
                                             }
+                                        }
+                                        else {
+                                            
+                                            <option value="@identity.UserId">@identity.Name</option>
+                                        }
+                                        
                                     </select>
                                 </div>  
                             </div>
                             <div class="control-group span2 spreadsheetControl">  
                                 <label class="control-label" for="customerDropDown">Kund</label>  
                                 <div class="controls">  
-                                    <select class="customerDropDown" name="customerDropDown">
+                                    <select class="spreadCustomerDropDown" name="customerDropDown">
                                         <option value="null">-- Alla --</option>
                                             @foreach (var c in Model.Customers) { 
                                                 <option value=@c.Id>@c.Name</option>
@@ -39,7 +48,7 @@
                             <div class="control-group span2 spreadsheetControl">  
                                 <label class="control-label" for="ProjectId">Projekt</label>  
                                 <div class="controls">  
-                                    <select class="projectDropDown" name="ProjectId">
+                                    <select class="spreadProjectDropDown" name="ProjectId">
                                         <option value="null">-- Alla --</option>
                                     </select>
                                 </div>  

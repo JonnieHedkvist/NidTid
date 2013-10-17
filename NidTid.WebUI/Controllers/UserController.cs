@@ -12,6 +12,7 @@ using System.Web.Security;
 
 namespace NidTid.WebUI.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class UserController : Controller
     {
         private IUserRepository repository;

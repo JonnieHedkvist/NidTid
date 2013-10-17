@@ -9,5 +9,7 @@ namespace NidTid.Domain.Abstract
         IQueryable<MeterPost> MeterPosts { get; }
 
         void SaveMeterPost(MeterPost MeterPost);
+
+        void DeletePost(MeterPost post);
     }
 }

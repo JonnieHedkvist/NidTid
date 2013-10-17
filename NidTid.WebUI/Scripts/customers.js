@@ -125,6 +125,15 @@
             }
         });
     });
+
+    $(document.body).on("click", "#deleteMeterPost", function () {
+        var meterPostId = $(this).attr("data-id");
+        bootbox.confirm("Vill du permanent ta bort denna post?", function (result) {
+            if (result == true) {
+                deleteFromDB(meterPostId, "/MeterPost/DeletePost", "/Vehicle/Index")
+            }
+        });
+    });
     
     $(document.body).on("click", "#createVehicle", function () {
         $.ajax({
@@ -138,6 +147,21 @@
             },
             error: function (result) {
                 alert("Ett fel inträffade och uppgifterna kunde inte sparas. Försök igen.");
+            }
+        });
+    });
+
+    $(document.body).on("click", ".meterPostTable", function () {
+        var vehicleId = $(this).attr("data-vehicleId");
+        $.ajax({
+            type: 'GET',
+            url: "/MeterPost/TableByVehicle",
+            data:{
+                vehicleId: vehicleId
+            },
+            success: function (result) {
+                $('#meterPostTable').html(result);
+                $('#meterPostModal').modal('show');
             }
         });
     });
@@ -244,6 +268,25 @@
         });
     });
 
+    $(document.body).on("change", ".spreadCustomerDropDown", function () {
+        var customerId = $(this).val();
+        $.ajax({
+            type: 'GET',
+            url: "/Customer/FilteredProjectsAll",
+            data: {
+                customerId: customerId
+            },
+            success: function (json) {
+                var sel = $(".spreadProjectDropDown");
+                sel.empty();
+                sel.append('<option value="null">-- Välj Projekt --</option>');
+                for (var i = 0; i < json.length; i++) {
+                    sel.append('<option value="' + json[i].id + '">' + json[i].name + '</option>');
+                }
+            }
+        });
+    });
+
     $(document.body).on("click", "#deleteReport", function () {
         var reportId = $(this).attr("data-id");
         bootbox.confirm("Vill du permanent ta bort denna rapport?", function (result) {
@@ -293,7 +336,7 @@
 
     $("#filterReports").click(function () {
         var userId = $("#userDropDown").val();
-        var projectId = $(".projectDropDown").val();
+        var projectId = $(".spreadProjectDropDown").val();
         var fromDate = $("#fromDate").val();
         var toDate = $("#toDate").val();
         showReports(projectId, userId, fromDate, toDate, null, "SpreadsheetResult");

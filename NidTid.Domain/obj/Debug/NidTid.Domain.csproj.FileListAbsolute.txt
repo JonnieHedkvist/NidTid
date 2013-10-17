@@ -40,3 +40,4 @@ C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.pdb
 C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Vehicle.resources
 C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.Vehicle22.resources
 C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.Migrations.MeterPost.resources
+C:\Utveckling\DinTid\NidTid.Domain\obj\Debug\NidTid.Domain.csprojResolveAssemblyReference.cache

@@ -144,6 +144,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Models\MeterPostListModel.cs" />
     <Compile Include="Models\MeterPostViewModel.cs" />
     <Compile Include="Models\ReportSummaryViewModel.cs" />
     <Compile Include="Models\SpreadsheetReportsModel.cs" />
@@ -321,6 +322,7 @@
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\Vehicle\Create.cshtml" />
+    <Content Include="Views\MeterPost\TableByVehicle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

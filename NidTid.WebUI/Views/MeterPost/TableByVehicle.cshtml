@@ -1,0 +1,57 @@
+﻿@model NidTid.WebUI.Models.MeterPostListModel
+
+            <table class="table table-striped" style="border-collapse:collapse;">
+                <thead>
+                     <tr>
+                    <th>
+                        Datum
+                    </th>
+                    <th>
+                        Mätarställning
+                    </th>
+                    <th>
+                        Användare
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.MeterPosts) {
+                    <tr data-toggle="collapse" data-target="#@item.Id" class="accordion-toggle">
+                        <td>
+                            @item.Date.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.CurrentMeter
+                        </td>
+                        <td>
+                            @item.User.Name
+                        </td>
+                        <td>
+                            <a id="deleteMeterPost" class="btn btn-danger btn-mini" data-id="@item.Id"><i class="icon-trash icon-white"></i>Radera</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="hiddenRow">
+                            <div class="accordion-body collapse" id="@item.Id">
+                            <table>
+                                <tr>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="icon-pencil"></i>
+                                    </td>
+                                    <td colspan="8">
+                                        @item.Notes
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
