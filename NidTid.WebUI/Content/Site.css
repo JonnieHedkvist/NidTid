@@ -35,3 +35,8 @@ div.ui-datepicker{
 .hiddenRow {
     padding: 0 !important;
 }
+
+#meterTableDiv {
+    max-height: 380px;
+    overflow: auto;
+}
