@@ -1,0 +1,40 @@
+﻿@model NidTid.WebUI.Models.ReportSummaryViewModel
+
+    <fieldset>
+        <legend>Rapporterad tid</legend>
+        <div class="row-fluid">
+            <div class="span12 well">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <b><u>Idag: @Model.TotalToday h</u></b>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span11 offset1">
+                            Debiterbart: <b>@Model.DebToday</b>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span11 offset1">
+                            Ej debiterbart: <b>@Model.EjDebToday</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <b><u>Denna månad: @Model.TotalMonth h</u></b>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span11 offset1">
+                            Debiterbart: <b>@Model.DebMonth</b>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span11 offset1">
+                            Ej debiterbart: <b>@Model.EjDebMonth</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </fieldset>

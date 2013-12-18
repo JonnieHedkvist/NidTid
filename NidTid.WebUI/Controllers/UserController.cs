@@ -12,7 +12,7 @@ using System.Web.Security;
 
 namespace NidTid.WebUI.Controllers
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class UserController : Controller
     {
         private IUserRepository repository;
@@ -58,7 +58,7 @@ namespace NidTid.WebUI.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public ActionResult Index(int? id)
         {
             User selectedUser = new User();

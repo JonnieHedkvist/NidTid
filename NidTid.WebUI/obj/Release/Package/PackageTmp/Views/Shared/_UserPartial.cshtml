@@ -1,0 +1,73 @@
+﻿@model NidTid.Domain.Entities.User
+
+<div class="span3">
+    @if (Model.Name != null) {
+    <fieldset>
+        <legend>@Model.Name</legend>
+        <div id="customerInfo">
+            @Html.EditorFor(model => Model.Id)
+            @Model.PersNr <br />
+            @Model.Role <br />
+            @Model.Adress <br />
+            @Model.PostNr
+            @Model.PostOrt <br />
+            @Model.Phone <br />
+            @Model.Email <br />
+            <br />
+        </div>
+        <div class="row-fluid">
+            <a class="btn btn-locked btn-info accordion-toggle" id="btnEditUser" data-toggle="collapse" data-target="#editUserDiv"><i class="icon-user icon-white"></i>Redigera personuppgifter</a> <br /><br />
+        </div>
+        <div class="row-fluid">
+            <a class="btn btn-locked btn-danger" data-id="@Model.Id" data-name="@Model.Name" id="btnDeleteUser"><i class="icon-trash icon-white"></i>Radera användare</a> <br /><br />
+        </div>
+    </fieldset>
+    }
+</div>
+<div class="span9">
+    <div class="row-fluid collapse" id="editUserDiv">
+        <div class="span12 well">
+            <fieldset>
+                <legend>Personuppgifter</legend>
+                <form id="userForm" action="" method="post">
+                    <div class="row-fluid">
+                        <div class="span4">
+                            @Html.LabelFor(model => model.Name)
+                            @Html.EditorFor(model => model.Name)
+                            @Html.LabelFor(model => model.PersNr)
+                            @Html.EditorFor(model => model.PersNr)
+                            @Html.LabelFor(model => model.Adress)
+                            @Html.EditorFor(model => model.Adress)
+                            @Html.LabelFor(model => model.PostNr)
+                            @Html.EditorFor(model => model.PostNr)
+                            @Html.LabelFor(model => model.PostOrt)
+                            @Html.EditorFor(model => model.PostOrt)
+                        </div>
+                        <div class="span4">
+                            @Html.LabelFor(model => model.Phone)
+                            @Html.EditorFor(model => model.Phone)
+                            @Html.LabelFor(model => model.Email)
+                            @Html.EditorFor(model => model.Email)
+                            @Html.LabelFor(model => model.Password)
+                            @Html.EditorFor(model => model.Password)
+                            @Html.LabelFor(model => model.Salary)
+                            @Html.EditorFor(model => model.Salary)
+                            @Html.LabelFor(model => model.Tax)
+                            @Html.EditorFor(model => model.Tax)
+                            @Html.EditorFor(model => model.Id)
+                        </div>
+                        <div class="span4">
+                            @Html.LabelFor(model => model.Role)
+                            <select name="Role">
+                                <option value="@Model.Role">@Model.Role</option> 
+                                <option value="Admin">Admin</option>
+                                <option value="User">User</option>
+                            </select>
+                            <a class="btn btn-locked btn-success" id="saveUser"><i class="icon-ok icon-white"></i>Spara</a>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>

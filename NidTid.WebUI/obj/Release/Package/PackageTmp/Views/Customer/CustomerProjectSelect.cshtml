@@ -1,0 +1,18 @@
+﻿@model NidTid.WebUI.Models.CustomersListViewModel
+
+<div id="customerSelect">
+    <select id="customerDropDown" name="customerDropDown">
+        <option value="null">-- Välj Kund --</option>
+            @foreach (var c in Model.Customers) { 
+                <option value=@c.Id>@c.Name</option>
+            }
+    </select>
+</div>
+
+<div id="ProjectSelect">
+        <select id="projectDropDown" name="Report.ProjectId">
+            <option value="null">-- Välj Projekt --</option>
+                
+        </select>
+</div>
+

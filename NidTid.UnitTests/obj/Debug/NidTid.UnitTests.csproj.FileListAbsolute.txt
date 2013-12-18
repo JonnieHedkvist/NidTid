@@ -25,3 +25,30 @@ C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.UnitTests\bi
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.UnitTests\obj\Debug\NidTid.UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.UnitTests\obj\Debug\NidTid.UnitTests.dll
 C:\Users\Jonnie\documents\visual studio 2012\Projects\NidTid\NidTid.UnitTests\obj\Debug\NidTid.UnitTests.pdb
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.UnitTests.dll.config
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.UnitTests.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.UnitTests.pdb
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Moq.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Newtonsoft.Json.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.Domain.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.WebUI.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Ninject.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\EntityFramework.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Web.Optimization.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Web.Http.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.Domain.pdb
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\NidTid.WebUI.pdb
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Moq.pdb
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Moq.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Newtonsoft.Json.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Ninject.pdb
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\Ninject.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\EntityFramework.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Web.Http.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Utveckling\DinTid\NidTid.UnitTests\obj\Debug\NidTid.UnitTests.csprojResolveAssemblyReference.cache
+C:\Utveckling\DinTid\NidTid.UnitTests\obj\Debug\NidTid.UnitTests.dll
+C:\Utveckling\DinTid\NidTid.UnitTests\obj\Debug\NidTid.UnitTests.pdb

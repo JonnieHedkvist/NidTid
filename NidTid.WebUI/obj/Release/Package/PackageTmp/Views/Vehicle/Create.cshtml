@@ -1,0 +1,21 @@
+﻿@model NidTid.Domain.Entities.Vehicle
+
+<form id="vehicleForm" action="" method="post">
+    <div class="modal-header">  
+        <a class="close" data-dismiss="modal">×</a>  
+        <h3>Nytt fordon</h3>  
+    </div>
+    <div id="vehicleModal" class="row-fluid">
+        <div class="span10 offset2">
+            @Html.LabelFor(model => model.RegNr)
+            @Html.EditorFor(model => model.RegNr)
+            @Html.LabelFor(model => model.Description)
+            @Html.EditorFor(model => model.Description)
+            @Html.EditorFor(model => model.Id)
+        </div>
+    </div>
+    <div class="modal-footer">  
+        <input type="button" id="createVehicle" class="btn btn-success" value="Spara"/>  
+        <a href="#" class="btn" data-dismiss="modal">Avbryt</a>  
+    </div>
+</form>

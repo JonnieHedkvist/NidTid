@@ -1,0 +1,45 @@
+﻿@model NidTid.WebUI.Models.ProjectViewModel
+
+<div class="row-fluid">
+    <div class="span3">
+        <fieldset>
+            <legend>@Model.Project.Customer.Name</legend>
+        </fieldset>
+    </div>
+    <div class="span9 well">
+        <fieldset>
+            <legend>Skapa projekt</legend>
+            <form id="projectForm" action="" method="post">
+                <div class="row-fluid">
+                    <div class="span6">
+                        @Html.LabelFor(model => model.Project.Name)
+                        @Html.EditorFor(model => model.Project.Name)
+                        <select id="userDropDown" name="Project.UserId">
+                            <option value="null">-- Projektansvarig --</option>
+                                @foreach (var u in Model.Users) { 
+                                    <option value=@u.Id>@u.Name</option>
+                                }
+                        </select>
+                        @Html.LabelFor(model => model.Project.Description)
+                        @Html.EditorFor(model => model.Project.Description)
+                        @Html.LabelFor(model => model.Project.Active)
+                        @Html.EditorFor(model => model.Project.Active)
+                    </div>
+                    <div class="span6">
+                        @Html.LabelFor(model => model.Project.Referens)
+                        @Html.EditorFor(model => model.Project.Referens)
+                        @Html.LabelFor(model => model.Project.KontoStr)
+                        @Html.EditorFor(model => model.Project.KontoStr)
+                        @Html.LabelFor(model => model.Project.FastBtn)
+                        @Html.EditorFor(model => model.Project.FastBtn)
+                        <div id="prjSaveBtn">
+                            <a href="#" class="btn btn-success btn-info" id="saveProject"><i class="icon-edit icon-white"></i>Spara projekt</a>
+                        </div>
+                        @Html.EditorFor(model => model.Project.CustomerId)
+                        @Html.EditorFor(model => model.Project.Id)
+                   </div>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>

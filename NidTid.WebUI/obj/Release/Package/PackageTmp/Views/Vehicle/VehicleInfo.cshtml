@@ -1,0 +1,15 @@
+﻿@model NidTid.WebUI.Models.VehicleViewModel
+
+<div class="span11 offset1">
+    <fieldset>
+        <legend>@Model.RegNr - @Model.Description</legend>
+            <div class="row-fluid">
+                Mätarställning: <b>@Model.CurrentMeter</b>
+            </div>
+            <div class="row-fluid">
+                Senast använd <b>@Model.Date</b> av <b>@Model.User</b>
+                <a data-vehicleId="@Model.Id" class="btn btn-info btn-small pull-right meterPostTable"><i class="icon-edit icon-white"></i>Visa körjournal</a>
+            </div>
+    </fieldset>
+    <br/>
+</div>

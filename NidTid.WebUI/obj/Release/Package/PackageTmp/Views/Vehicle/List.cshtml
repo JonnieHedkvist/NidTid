@@ -1,0 +1,12 @@
+﻿@model NidTid.WebUI.Models.VehicleListViewModel
+
+@{
+  foreach (var v in Model.Vehicles) {
+    <div class="row-fluid">
+        @{
+            Html.RenderAction("VehicleInfo", "Vehicle", new { id = v.Id});
+        }
+    </div>
+  }  
+}
+

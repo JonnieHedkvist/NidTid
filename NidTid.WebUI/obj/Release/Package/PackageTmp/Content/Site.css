@@ -1,0 +1,42 @@
+﻿/* Main Layout
+------------------------------------------------------------*/
+#header {
+    background: #dff2b0;
+    border-bottom: 1px solid black;
+}
+html {
+    overflow-y:scroll;
+}
+
+
+/*--------------------------------Form styles-----------------------------*/
+
+
+.smallField {
+    width: 2em;
+}
+
+div.ui-datepicker{
+    font-size:12px;
+}
+
+.spreadsheetControl {
+    margin-right: 28px;
+}
+
+
+
+/*---------Element styles---------------------*/
+
+
+
+/*-------- Table styles--------------*/
+
+.hiddenRow {
+    padding: 0 !important;
+}
+
+#meterTableDiv {
+    max-height: 380px;
+    overflow: auto;
+}
